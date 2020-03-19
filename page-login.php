@@ -1,3 +1,19 @@
+<?php
+
+  include 'login.php';
+  if (!empty($_SESSION['login_user'])){
+    header("location: profile.php?user=".$_SESSION['login_user']);
+    exit();
+  }
+  $error = $_GET['error'];
+  $error = stripslashes($_GET['error']);
+  $error = mysql_real_escape_string($_GET['error']);
+  $error = strip_tags($_GET['error']);
+  echo "<center>$error</center>";
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,13 +66,6 @@
           <button class="btn btn-bold btn-block btn-primary" type="submit">Login</button>
         </div>
       </form>
-
-      <div class="divider">Or Sign In With</div>
-      <div class="text-center">
-        <a class="btn btn-circular btn-sm btn-facebook mr-4" href="#"><i class="fa fa-facebook"></i></a>
-        <a class="btn btn-circular btn-sm btn-google mr-4" href="#"><i class="fa fa-google"></i></a>
-        <a class="btn btn-circular btn-sm btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
-      </div>
 
       <hr class="w-30">
 
