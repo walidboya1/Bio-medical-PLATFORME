@@ -27,21 +27,29 @@
       <h5 class="text-uppercase text-center">Register</h5>
       <br><br>
 
-      <form class="form-type-material">
+      <form class="form-type-material" id="form_signup" name="form_signup" action="signup.php" method="post">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Username">
+          <input type="text" id="reg_uname" name="reg_uname" pattern="^[a-zA-Z ]+$" placeholder="User Name" onchange="check_user()" class="form-control" placeholder="Username">
         </div>
 
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Email address">
+          <input type="email" id="reg_email" name="reg_email" class="form-control" placeholder="Adresse mail">
         </div>
 
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password">
+          <input type="phone" id="reg_phone" name="reg_phone" class="form-control" placeholder="N° de télephone">
+        </div>
+
+    <div class="form-group">
+          <input type="text" id="reg_CIN" name="reg_CIN" class="form-control" placeholder="Identité National">
         </div>
 
         <div class="form-group">
-          <input type="password" class="form-control" placeholder="Password (confirm)">
+          <input type="password" id="reg_passwd" name="reg_passwd" class="form-control" placeholder="Mot de Passe">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
         </div>
 
         <div class="form-group">
@@ -53,7 +61,7 @@
         </div>
 
         <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit">Register</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
       </form>
 
       <hr class="w-30">

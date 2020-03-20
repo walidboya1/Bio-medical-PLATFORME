@@ -1,3 +1,18 @@
+<?php
+
+  include 'login.php';
+  if (!empty($_SESSION['login_user'])){
+    header("location: profile.php?user=".$_SESSION['login_user']);
+    exit();
+  }
+  $error = $_GET['error'];
+  $error = stripslashes($_GET['error']);
+  $error = mysql_real_escape_string($_GET['error']);
+  $error = strip_tags($_GET['error']);
+  echo "<center>$error</center>";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -44,8 +59,8 @@
 
 
             <div class="d-inline-flex ml-30">
-              <a class="btn btn-sm btn-primary mr-4" href="page-login.html">Se Connecter</a>
-              <a class="btn btn-sm btn-outline btn-primary hidden-sm-down" href="page-register.html">S'Inscrire</a>
+              <a class="btn btn-sm btn-primary mr-4" href="page-login.php">Se Connecter</a>
+              <a class="btn btn-sm btn-outline btn-primary hidden-sm-down" href="page-register.php">S'Inscrire</a>
             </div>
           </div>
 
@@ -70,8 +85,8 @@
 
             <br><br><br>
 
-            <a class="btn btn-lg btn-round w-200 btn-primary mr-16" href="page-login.html">Se Connecter</a>
-            <a class="btn btn-lg btn-round w-200 btn-outline btn-primary hidden-sm-down" href="page-register.html">S'Inscrire</a>
+            <a class="btn btn-lg btn-round w-200 btn-primary mr-16" href="page-login.php">Se Connecter</a>
+            <a class="btn btn-lg btn-round w-200 btn-outline btn-primary hidden-sm-down" href="page-register.php">S'Inscrire</a>
 
           </div>
 
