@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>TheSaaS - Register</title>
+    <title>TELERADIO - Register</title>
 
     <!-- Styles -->
     <link href="assets/css/core.min.css" rel="stylesheet">
@@ -16,6 +16,27 @@
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
     <link rel="icon" href="assets/img/favicon.png">
+
+
+    <style>
+.msg-alert{
+  display: none;
+  position: fixed;
+  left: 50%;
+ -ms-transform: translate(-50%);
+  transform: translate(-50%); 
+  bottom:0;
+  z-index: 9999;
+}
+
+.msg-alert p{
+  font-family: calibri;
+  border-radius: 5px 5px 0px 0px;
+  padding: 5px 8px;
+  font-size: 20px;
+  color: white;
+}
+</style>
   </head>
 
   <body class="mh-fullscreen bg-img center-vh p-20" style="background-image: url(assets/img/bg-girl.jpg);">
@@ -24,7 +45,7 @@
 
 
     <div class="card card-shadowed p-50 w-400 mb-0" style="max-width: 100%">
-      <h5 class="text-uppercase text-center">Register</h5>
+      <h5 class="text-uppercase text-center">S'enregistrer</h5>
       <br><br>
 
       <form class="form-type-material" id="form_signup" name="form_signup" action="signup.php" method="post">
@@ -62,6 +83,27 @@
 
         <br>
         <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
+      
+<script type="text/javascript">
+            function check_user(){
+              var uname = $("#reg_uname").val();
+              $.ajax({
+                    url: "check_user.php?username="+uname,
+                    success: function(data){
+                      $(".msg-alert p").html(data);
+                      if (data == "Username Available"){
+                        $(".msg-alert p").css("background-color","green");
+                      }
+                      else{
+                        $(".msg-alert p").css("background-color","red");
+                      }
+                      $(".msg-alert").show(0,function(){
+                        $(".msg-alert").delay(3000).fadeOut('slow');
+                      });
+                    }
+                  });
+          }
+          </script>
       </form>
 
       <hr class="w-30">
