@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>TELERADIO - Register</title>
+    <title>TELERADIO - Inscription</title>
 
     <!-- Styles -->
     <link href="assets/css/core.min.css" rel="stylesheet">
@@ -18,25 +18,7 @@
     <link rel="icon" href="assets/img/favicon.png">
 
 
-    <style>
-.msg-alert{
-  display: none;
-  position: fixed;
-  left: 50%;
- -ms-transform: translate(-50%);
-  transform: translate(-50%); 
-  bottom:0;
-  z-index: 9999;
-}
-
-.msg-alert p{
-  font-family: calibri;
-  border-radius: 5px 5px 0px 0px;
-  padding: 5px 8px;
-  font-size: 20px;
-  color: white;
-}
-</style>
+  
   </head>
 
   <body class="mh-fullscreen bg-img center-vh p-20" style="background-image: url(assets/img/bg-girl.jpg);">
@@ -48,13 +30,37 @@
       <h5 class="text-uppercase text-center">S'enregistrer</h5>
       <br><br>
 
-      <form class="form-type-material" id="form_signup" name="form_signup" action="signup.php" method="post">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<div id="backgroundLogin">
+<form name="login" method="post" action="signup.php" class="technicien-form">
+         <fieldset>
+<div class="form-group">
+              <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="medecin" value="medecin" disabled="">
+                  <a class="show-medecin-form"><span class="custom-control-indicator"></span></a>
+
+                  <span class="custom-control-description">Medecin</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Technicien</span>
+                </label>
+</div>
         <div class="form-group">
-          <input type="text" id="reg_uname" name="reg_uname" pattern="^[a-zA-Z ]+$" placeholder="User Name" onchange="check_user()" class="form-control" placeholder="Username">
-        </div>
+          <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" placeholder="Nom">
+        </div> 
+          
+          
+
+<div class="form-group">
+          <input type="text" id="reg_prenom" name="reg_prenom" pattern="^[a-zA-Z ]+$" placeholder="Prenom" class="form-control" placeholder="Prenom">
+        </div>                                                                                                                                                     
 
         <div class="form-group">
-          <input type="email" id="reg_email" name="reg_email" class="form-control" placeholder="Adresse mail">
+          <input type="email" id="reg_email" name="reg_email" class="form-control" onchange ="check_email()" placeholder="Adresse mail">
         </div>
 
         <div class="form-group">
@@ -73,22 +79,75 @@
           <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
         </div>
 
+
+    <br>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
+      </fieldset>
+      </form>
+
+
+<form action="signup.php" method="POST" class="medecin-form"  style="display:none;">
+<div class="form-group">
+             <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="medecin"  value="medecin"  checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Medecin</span>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"   value="technicien"  disabled="">
+                  <a class="show-technicien-form"><span class="custom-control-indicator"></span></a>
+                  <span class="custom-control-description">Technicien</span>
+                </label>
+</div>
         <div class="form-group">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">I agree to all <a class="text-primary" href="#">terms</a></span>
-          </label>
+          <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" placeholder="Nom">
+        </div> 
+          
+          
+
+<div class="form-group">
+          <input type="text" id="reg_prenom" name="reg_prenom" pattern="^[a-zA-Z ]+$" placeholder="Prenom" class="form-control" placeholder="Prenom">
+        </div>                                                                                                                                                     
+
+        <div class="form-group">
+          <input type="email" id="reg_email" name="reg_email" class="form-control" onchange ="check_email()" placeholder="Adresse mail">
+        </div>
+
+        <div class="form-group">
+          <input type="phone" id="reg_phone" name="reg_phone" class="form-control" placeholder="N° de télephone">
+        </div>
+
+    <div class="form-group">
+          <input type="text" id="reg_CIN" name="reg_CIN" class="form-control" placeholder="Identité National">
+        </div>
+
+    <div class="form-group">
+          <input type="text" id="reg_med" name="reg_med" class="form-control" placeholder="Identité Medecin">
+        </div>
+
+  <div class="form-group">
+          <input type="text" id="reg_site" name="reg_site" class="form-control" placeholder="Adresse">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="reg_passwd" name="reg_passwd" class="form-control" placeholder="Mot de Passe">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
         </div>
 
         <br>
         <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
-      
+
+      </form>
+
 <script type="text/javascript">
-            function check_user(){
-              var uname = $("#reg_uname").val();
+            function check_email(){
+              var uname = $("#reg_email").val();
               $.ajax({
-                    url: "check_user.php?username="+uname,
+                    url: "check_email.php?username="+uname,
                     success: function(data){
                       $(".msg-alert p").html(data);
                       if (data == "Username Available"){
@@ -104,11 +163,23 @@
                   });
           }
           </script>
-      </form>
+      
 
-      <hr class="w-30">
 
-      <p class="text-center text-muted fs-13 mt-20">Already have an account? <a href="page-login.html">Sign in</a></p>
+
+
+<script type="text/javascript">
+$('.technicien-form a.show-medecin-form').click(function(){
+  $('.technicien-form').hide();
+  $('.medecin-form').show();  
+});
+$('.medecin-form a.show-technicien-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').show(); 
+});
+</script>
+
+</div>
     </div>
 
 
