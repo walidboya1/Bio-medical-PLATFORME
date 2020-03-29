@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 21 mars 2020 à 02:23
+-- Généré le :  sam. 28 mars 2020 à 01:41
 -- Version du serveur :  10.1.32-MariaDB
 -- Version de PHP :  5.6.36
 
@@ -58,6 +58,12 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `msg_counter` (IN `id` INT(11))  BEG
  WHERE sent_to = id;
  END$$
 
+CREATE DEFINER=`'root' `@` 'localhost'` PROCEDURE `updateuser` (IN `email_id` TEXT)  BEGIN
+ SELECT * 
+ FROM user
+ WHERE email_id = email_id;
+ END$$
+
 DELIMITER ;
 
 -- --------------------------------------------------------
@@ -104,6 +110,13 @@ CREATE TABLE `medecin` (
   `site` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Déchargement des données de la table `medecin`
+--
+
+INSERT INTO `medecin` (`id`, `nom`, `prenom`, `contact`, `id_med`, `id_user`, `site`) VALUES
+(12, '$nom', '$prenom', '$telephone', '$idmed', 25, '$site');
+
 -- --------------------------------------------------------
 
 --
@@ -114,7 +127,10 @@ CREATE TABLE `patient` (
   `Id` int(11) NOT NULL,
   `Id_image` int(11) NOT NULL,
   `id_medecin` int(11) NOT NULL,
-  `id_technicien` int(11) NOT NULL
+  `id_technicien` int(11) NOT NULL,
+  `age` int(11) NOT NULL,
+  `sexe` varchar(20) NOT NULL,
+  `nom` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -141,8 +157,18 @@ CREATE TABLE `technitien` (
 CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email_id` varchar(200) NOT NULL,
-  `passsword` varchar(200) NOT NULL
+  `password` varchar(200) NOT NULL,
+  `prof` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `user`
+--
+
+INSERT INTO `user` (`id`, `email_id`, `password`, `prof`) VALUES
+(1, 'walidbouraya18@gmail.com', '1234', 0),
+(25, 'walid@w.com', '1234', 0),
+(31, 'walid1@w.com', '1234', 0);
 
 --
 -- Index pour les tables déchargées
@@ -197,7 +223,7 @@ ALTER TABLE `technitien`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`,`email_id`,`passsword`),
+  ADD UNIQUE KEY `id` (`id`,`email_id`,`password`),
   ADD UNIQUE KEY `id_2` (`id`);
 
 --
@@ -220,7 +246,7 @@ ALTER TABLE `image`
 -- AUTO_INCREMENT pour la table `medecin`
 --
 ALTER TABLE `medecin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `patient`
@@ -238,7 +264,7 @@ ALTER TABLE `technitien`
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Contraintes pour les tables déchargées

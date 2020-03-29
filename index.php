@@ -2,7 +2,7 @@
 
   include 'login.php';
   if (!empty($_SESSION['login_user'])){
-    header("location: profile.php?user=".$_SESSION['login_user']);
+    header("location: technitien.php?user=".$_SESSION['login_user']);
     exit();
   }
   $error = $_GET['error'];

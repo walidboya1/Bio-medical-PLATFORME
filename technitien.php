@@ -30,7 +30,7 @@
           
           <div class="topbar-left">
             <button class="topbar-toggler">&#9776;</button>
-            <a class="topbar-brand" href="index.html">
+            <a class="topbar-brand" href="index.php">
               <img class="logo-default" src="assets/img/logo.png" alt="logo">
               <img class="logo-inverse" src="assets/img/logo.png" alt="logo">
             </a>
@@ -49,7 +49,7 @@
 
 
     <!-- Header -->
-    <header class="header header-inverse h-fullscreen" style="background-image: url(assets/img/bg-laptop.jpg)">
+    <header class="header header-inverse h-fullscreen">
       <div class="header-overlay opacity-90" style="background-color: #563d7c"></div>
 
       <div class="container text-center">
@@ -77,14 +77,14 @@
         <div class="container-wide">
           <div class="row no-gap">
             
-            <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/bg-man.jpg); min-height: 300px;"></div>
+            <div class="col-12 col-md-6 bg-img" style="background-image: url(image/fichep.png); min-height: 300px;"></div>
 
 
             <div class="offset-1 col-10 col-md-4 py-90">
               <h5>Remplir la fiche d'un patient</h5>
-              <p>Interactively productize worldwide potentialities before long-term high-impact initiatives. Completely disintermediate excellent leadership skills with client-centric content.</p>
+              <p>Ici vous trouverez le formulaire concernant la fiche de vôtre patient, veillez la remplire pour l'ajouter à vôtre base de donné.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="#">Read More</a>
+              <a class="btn btn-round btn-primary" href="fichepat.php">voire fiche</a>
             </div>
 
           </div>
