@@ -1,31 +1,4 @@
-<?php
-  error_reporting(0);
-  include 'config.php';
-  session_start();
-  if (empty($_SESSION['login_user'])){
-    header("location: index.php");
-    exit();
-  }
-  
-  if (is_numeric($_GET['user'])){
-    $query = "select name,email_id,contact_no,img_url,user_type from user where id=".$_GET['user'];
-  }
-  else{
-    $query = "select name,email_id,contact_no,img_url,user_type from user where name='".$_GET['user']."'";
-  }
 
-  $table = mysqli_query($connection,$query);
-    if($table){
-      $rows=mysqli_num_rows($table);
-      if($rows == 1){
-          $row = mysqli_fetch_assoc($table);
-          $dp = $row['img_url'];
-          $fullname = $row['name'];
-          $email = $row['email_id'];
-          $contact = $row['contact_no'];
-        }
-    } 
-?>
 
 <!DOCTYPE html>
 <html>
@@ -45,7 +18,7 @@
     <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
     <link rel="icon" href="assets/img/favicon.png">
 
-	<title>TELERADIO - Technicien</title>
+  <title>TELERADIO - medecin</title>
 </head>
 <body>
   <!--
@@ -79,14 +52,14 @@
 
     <!-- Header -->
     <header class="header header-inverse h-fullscreen">
-      <div class="header-overlay opacity-90" style="background-color: #563d7c"></div>
+      <div class="header-overlay opacity-90" style="background-color: #0000FF"></div>
 
       <div class="container text-center">
 
         <div class="row h-full">
           <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
 
-            <h5 class="display-4">Technicien</h5>
+            <h5 class="display-4">medecin</h5>
            
           </div>
         </div>
@@ -110,43 +83,30 @@
 
 
             <div class="offset-1 col-10 col-md-4 py-90">
-              <h5>Remplir la fiche d'un patient</h5>
-              <p>Ici vous trouverez le formulaire concernant la fiche de vôtre patient, veillez la remplire pour l'ajouter à vôtre base de donné.</p>
+              <h5>Génerer un Patient</h5>
+              <p>Ici vous pourriez génerer un patient auquelle vous allez commencez à travailler sur son dossier.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="fichepat.php">voire fiche</a>
+              <a class="btn btn-round btn-primary" href="fichepat.php">Génerer Patient</a>
             </div>
 
           </div>
 
-          <div class="row no-gap">
-
-            <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/bg-girl.jpg); min-height: 300px;"></div>
-
-            <div class="offset-1 col-10 col-md-4 py-90 order-md-first">
-              <h5>Medecin Responsable et consultaion des résultats</h5>
-              <p>Interactively productize worldwide potentialities before long-term high-impact initiatives. Completely disintermediate excellent leadership skills with client-centric content.</p>
-              <br>
-                            <input class="form-control" type="text" name="name" placeholder="Nom">
- <br>
-              <a class="btn btn-round btn-primary" href="#">Chercher</a>
-             
-            </div>
-
-          </div>
+ 
 
              <div class="row no-gap">
             
-            <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/bg-man.jpg); min-height: 300px;"></div>
+         <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/bg-girl.jpg); min-height: 300px;"></div>
 
-
-            <div class="offset-1 col-10 col-md-4 py-90">
+            <div class="offset-1 col-10 col-md-4 py-90 order-md-first">
               <h5>Visionner la liste des patient</h5>
-              <p>Interactively productize worldwide potentialities before long-term high-impact initiatives. Completely disintermediate excellent leadership skills with client-centric content.</p>
+              <p>Ici vous pourriez consulter la liste des patient que vous avez aussi voir la fiche d'un patient et donner une interpretation à propot de ce dernier.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="#">Read More</a>
+              <a class="btn btn-round btn-primary" href="#">Voir la liste</a>
             </div>
 
           </div>
+
+
         </div>
       </section>
 
