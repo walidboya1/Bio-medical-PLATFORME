@@ -15,6 +15,7 @@
 			$passwd = stripslashes($passwd);
 			$email = mysql_real_escape_string($email);
 			$passwd = mysql_real_escape_string($passwd);
+			$passwd = md5($passwd);
 
 			// SQL query to fetch information of registerd users and finds user match.
 			$query = "CALL Login('$email','$passwd')";
