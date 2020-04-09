@@ -11,7 +11,7 @@
 		$idmed = $_POST['reg_med'];
 		$site = $_POST['reg_site'];
 
-		echo $query = "INSERT INTO user(email_id,password) VALUES('$email_id','$password')";
+		echo $query = "INSERT INTO user(email_id,password) VALUES('$email_id','".md5(&password)."')";
    		echo $table = mysqli_query($connection,$query);
 
  $query2 = "CALL updateuser('$email_id')";
