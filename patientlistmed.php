@@ -109,7 +109,7 @@
 
 
 <section class="section bg-gray">
-        <div class="container">
+        <div class="container ">
           <header class="section-header">
             <h2>PATIENT FILE</h2>
             <hr>
@@ -119,25 +119,28 @@
 
           <p class="text-center">
           	<form id="form-edu" action="update-pat.php"><?php
-							$query = "SELECT * FROM image join patient on image.Id_patient = patient.ID where patient.id_medecin IS NULL LIMIT 1";
+
+          	      $deg_query1 = "SELECT id from medecin where id_user ='".$_SESSION['login_user']."'";
+$deg_table1 = mysqli_query($connection,$deg_query1);
+if($deg_table1){
+								$deg_column1=mysqli_num_rows($deg_table1);
+								if($deg_column1 > 0){
+				    					$deg_column1 = mysqli_fetch_assoc($deg_table1);
+
+							$query = "SELECT * FROM image join patient on image.Id_patient = patient.ID where patient.id_medecin = '".$deg_column1['id']."'";
 							$table = mysqli_query($connection,$query);
 							if($table){
 								$rows=mysqli_num_rows($table);
-								if($rows == 1){
-						?><div class="section-dialog"><?php
+								if($rows > 0){
+										for($x = 0; $x < $rows; $x++) { 
+											echo"<div class='divider'>Patient N° ".($x + 1)." </div>";?>
+						<div class='section-dialog'>
+											<?php
 				    					$row = mysqli_fetch_assoc($table);
-				    					if ($row){
-												
-												$deg_query = "select id from patient where id_medecin IS NULL";
-												$deg_table = mysqli_query($connection, $deg_query);
-												if ($deg_table){
-													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<input type='hidden' name = 'nompat' id='nompat' value ='" .$deg_column['id']."' readonly>";
-												}
+				    					if ($row) {
+											
 
-
-
-												$inst_query = "select nom from image join patient on image.Id_patient = patient.ID where patient.id_medecin IS NULL LIMIT 1";
+												$inst_query = "select nom from image join patient on image.Id_patient = patient.ID where patient.id_medecin = '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
 												$inst_table = mysqli_query($connection, $inst_query);
 												if ($inst_table){
 													$inst_column = mysqli_fetch_assoc($inst_table);
@@ -145,21 +148,21 @@
 												
 												}
 
-												$deg_query = "select sexe from patient where id_medecin IS NULL";
+												$deg_query = "select sexe from patient where id_medecin = '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
 													$deg_column = mysqli_fetch_assoc($deg_table);
 													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  SEXE :  ".$deg_column['sexe']." </p>";
 												}
 						
-												$deg_query = "select age from patient where id_medecin IS NULL";
+												$deg_query = "select age from patient where id_medecin = '".$deg_column1['id']."' LIMIT 1 OFFSET ".$x;
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
 													$deg_column = mysqli_fetch_assoc($deg_table);
 													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  AGE :  ".$deg_column['age']." </p>";
 												}
 
-												$deg_query = "select tele from patient where id_medecin IS NULL";
+												$deg_query = "select tele from patient where id_medecin = '".$deg_column1['id']."' LIMIT 1 OFFSET ".$x;
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
 													$deg_column = mysqli_fetch_assoc($deg_table);
@@ -170,7 +173,7 @@
 												
 										}
 							
-      $deg_query = "SELECT id from medecin where id_user ='".$_SESSION['login_user']."'";
+      $deg_query = "SELECT id from medecin where id_user = '32'";
 $deg_table = mysqli_query($connection,$deg_query);
 if($deg_table){
 								$deg_column=mysqli_num_rows($deg_table);
@@ -182,23 +185,35 @@ if($deg_table){
 }
 } ?>
 
-						<button id="item-submit-edu" class="edit-button">Save</button>
+						<button id="item-submit-edu" class="edit-button " >Save</button>
 </div>
 
 						   <?php
-						    }
+
+						    }}
 						    else {
 						    	?>
 						    	<div class="container text-center">
-						    	<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class="text-danger display-4">There is no free patient</h1></span>
+						    	<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class="text-danger display-4">You have no patients</h1></span>
 						    </div>
-						   <?php }
+						   <?php 
+						
+					}
 
-								}
+								}}}
 						?>
-</form>
+</div></form>
 						</p>
-					        </div>
+					
+
+
+
+
+
+        </div>
+
+
+
       </section>
 
    

@@ -101,7 +101,7 @@
               <h5>Visionner la liste des patient</h5>
               <p>Ici vous pourriez consulter la liste des patient que vous avez aussi voir la fiche d'un patient et donner une interpretation à propot de ce dernier.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="#">Voir la liste</a>
+              <a class="btn btn-round btn-primary" href="patientlistmed.php">Voir la liste</a>
             </div>
 
           </div>
