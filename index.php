@@ -2,7 +2,17 @@
 
   include 'login.php';
   if (!empty($_SESSION['login_user'])){
-    header("location: technitien.php?user=".$_SESSION['login_user']);
+              if($_SESSION['admin'] == 0){
+          header("location: medecin.php?user=".$_SESSION['login_user']);
+}
+
+          if($_SESSION['admin'] == 1){
+          header("location: technitien.php?user=".$_SESSION['login_user']);
+}
+
+          if($_SESSION['admin'] == 2){
+          header("location: page-register.php?user=".$_SESSION['login_user']);
+}
     exit();
   }
   $error = $_GET['error'];

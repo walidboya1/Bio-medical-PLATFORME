@@ -11,20 +11,27 @@
 		$idmed = $_POST['reg_med'];
 		$site = $_POST['reg_site'];
 
-		echo $query = "INSERT INTO user(email_id,password) VALUES('$email_id','".md5($password)."')";
-   		echo $table = mysqli_query($connection,$query);
-
- $query2 = "CALL updateuser('$email_id')";
+		$query = "INSERT INTO user(email_id,password,prof) VALUES('$email_id','".md5($password)."','0')";
+   		$table = mysqli_query($connection,$query);
+if($table){
+ $query2 = "SELECT id FROM  user  where email_id = '$email_id' LIMIT 1";
 $table2 = mysqli_query($connection,$query2);
 
 if($table2){
 				$rows=mysqli_num_rows($table2);
 				if($rows == 1){
-					$row = mysqli_fetch_assoc($table1);
-					$email = $row['id'];
-        echo $query1 = "INSERT INTO medecin(Nom,prenom,contact,id_med,id_user,site) values('$nom','$prenom','$telephone','$idmed', '$email' ,'$site')";
-       	echo $table1 = mysqli_query($connection,$query1);
-}}
-		mysqli_close($connection); // Closing Connection
-	}
+					$row = mysqli_fetch_assoc($table2);
+        $query1 = "INSERT INTO medecin(nom,prenom,contact,id_med,id_user,site) values('$nom','$prenom','$telephone','$idmed', '".$row['id']."' ,'$site')";
+       	$table1 = mysqli_query($connection,$query1);
+
+		if($table1){
+			$_SESSION['login_user']= $row['id']; 
+			$_SESSION['email_id'] = $row['email_id'];
+			$_SESSION['admin'] = $row['prof'];
+			header("location: medecin.php?user=".$_SESSION['login_user']);
+			exit();
+		}
+	}}}
+	}	mysqli_close($connection); // Closing Connection
+	
 ?>

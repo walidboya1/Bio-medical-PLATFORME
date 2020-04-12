@@ -29,11 +29,21 @@
 					$_SESSION['login_user'] = $row['id'];
 					$_SESSION['user_name'] = $row['user_name'];
 					$_SESSION['email_id'] = $row['email_id'];
-					$_SESSION['contact'] = $row['contact_no'];
+					$_SESSION['admin'] = $row['prof'];
 					$_SESSION['dp_url'] = $row['img_url'];
 					setcookie("dp_url", $_SESSION['dp_url']);
 					setcookie("user_name", $_SESSION['user_name']);
-					header("location: profile.php?user=".$_SESSION['login_user']);
+					if($_SESSION['admin'] == 0){
+					header("location: medecin.php?user=".$_SESSION['login_user']);
+}
+
+					if($_SESSION['admin'] == 1){
+					header("location: technitien.php?user=".$_SESSION['login_user']);
+}
+
+					if($_SESSION['admin'] == 2){
+					header("location: page-register.php?user=".$_SESSION['login_user']);
+}
 
 					exit();
 				}

@@ -7,6 +7,15 @@
     exit();
   }
   
+    else{        if($_SESSION['admin'] == 0){
+          header("location: medecin.php?user=".$_SESSION['login_user']);
+}
+
+          if($_SESSION['admin'] == 2){
+          header("location: page-register.php?user=".$_SESSION['login_user']);
+}
+
+}
   if (is_numeric($_GET['user'])){
     $query = "select name,email_id,contact_no,img_url,user_type from user where id=".$_GET['user'];
   }
