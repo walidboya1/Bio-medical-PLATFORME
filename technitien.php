@@ -132,31 +132,17 @@
             <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/bg-girl.jpg); min-height: 300px;"></div>
 
             <div class="offset-1 col-10 col-md-4 py-90 order-md-first">
-              <h5>Medecin Responsable et consultaion des résultats</h5>
-              <p>Interactively productize worldwide potentialities before long-term high-impact initiatives. Completely disintermediate excellent leadership skills with client-centric content.</p>
+              <h5>Patient LIST</h5>
+              <p>Here you can see all the patients that you have added with the responsible doctor and the interpretation if given.</p>
               <br>
-                            <input class="form-control" type="text" name="name" placeholder="Nom">
  <br>
-              <a class="btn btn-round btn-primary" href="#">Chercher</a>
+              <a class="btn btn-round btn-primary" href="patientlisttech.php">See LIST</a>
              
             </div>
 
           </div>
 
-             <div class="row no-gap">
             
-            <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/bg-man.jpg); min-height: 300px;"></div>
-
-
-            <div class="offset-1 col-10 col-md-4 py-90">
-              <h5>Visionner la liste des patient</h5>
-              <p>Interactively productize worldwide potentialities before long-term high-impact initiatives. Completely disintermediate excellent leadership skills with client-centric content.</p>
-              <br>
-              <a class="btn btn-round btn-primary" href="#">Read More</a>
-            </div>
-
-          </div>
-        </div>
       </section>
 
 
