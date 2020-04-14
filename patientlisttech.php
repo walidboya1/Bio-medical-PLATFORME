@@ -142,6 +142,18 @@
 												
 												}
 
+												$inst_query2 = "select medecin.nom from patient join medecin on patient.id_medecin = medecin.ID where patient.id_technicien = '".$row['id_technicien']."'  LIMIT 1 OFFSET ".$x;
+												$inst_table2 = mysqli_query($connection, $inst_query2);
+												if ($inst_table2){
+													$inst_column2 = mysqli_fetch_assoc($inst_table2);
+													if (!empty($inst_column2['nom'])){
+													echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> DOCTOR NAME : ".$inst_column2['nom']."</p>";
+												}else{
+													echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'>No doctor has taken the patient yet</p>";
+												}
+												}
+
+
 												$deg_query = "select sexe from patient where id_technicien = '".$row['id_technicien']."' LIMIT 1 OFFSET ".$x;
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
