@@ -26,27 +26,19 @@
 				$rows=mysqli_num_rows($table);
 				if($rows == 1){
 			    	$row = mysqli_fetch_assoc($table);
+					srand(microtime()*10000);
+					$str=rand(); 
+					$result = md5($str); 
 					$_SESSION['login_user'] = $row['id'];
 					$_SESSION['user_name'] = $row['user_name'];
 					$_SESSION['email_id'] = $row['email_id'];
 					$_SESSION['admin'] = $row['prof'];
 					$_SESSION['dp_url'] = $row['img_url'];
+					$_SESSION['User_Id']=$result;
 					setcookie("dp_url", $_SESSION['dp_url']);
 					setcookie("user_name", $_SESSION['user_name']);
-					if($_SESSION['admin'] == 0){
-					header("location: medecin.php?user=".$_SESSION['login_user']);
-}
-
-					if($_SESSION['admin'] == 1){
-					header("location: technitien.php?user=".$_SESSION['login_user']);
-}
-
-					if($_SESSION['admin'] == 2){
-					header("location: page-register.php?user=".$_SESSION['login_user']);
-}
-
-					exit();
-				}
+					$query="UPDATE user set session='".$result."' where id=".$_SESSION['login_user'];
+					$sess=mysqli_query($connection,$query);
 				else {
 					$error = "Username or Password is invalid";
 				}

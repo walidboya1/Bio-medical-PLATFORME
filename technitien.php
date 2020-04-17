@@ -1,23 +1,6 @@
 <?php
-  error_reporting(0);
-  include 'config.php';
-  session_start();
-  if (empty($_SESSION['login_user'])){
-    header("location: index.php");
-    exit();
-  }
-  
-    else{        if($_SESSION['admin'] == 0){
-          header("location: medecin.php?user=".$_SESSION['login_user']);
-}
-
-          if($_SESSION['admin'] == 2){
-          header("location: page-register.php?user=".$_SESSION['login_user']);
-}
-
-}
-
- 
+  require 'required.php';
+  istechnicien();
 ?>
 
 <!DOCTYPE html>

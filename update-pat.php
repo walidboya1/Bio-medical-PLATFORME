@@ -1,10 +1,6 @@
 <?php
-	include 'config.php';
-	session_start();
-	if (empty($_SESSION['login_user'])){
-		header("location: index.php");
-		exit();
-	}
+require 'required.php';
+ismedecin();
 $IDpat = $_GET['nompat'];
 $IDmedecin = $_GET['idmed'];
 	$user = $_SESSION['login_user'];
