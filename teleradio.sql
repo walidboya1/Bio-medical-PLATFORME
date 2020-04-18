@@ -139,7 +139,7 @@ CREATE TABLE `patient` (
 -- Structure de la table `technitien`
 --
 
-CREATE TABLE `technitien` (
+CREATE TABLE `technicien` (
   `id` int(11) NOT NULL,
   `nom` varchar(200) NOT NULL,
   `prenom` varchar(200) NOT NULL,
@@ -158,7 +158,8 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email_id` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
-  `prof` int(11) NOT NULL
+  `prof` int(11) NOT NULL,
+  `session` int(50)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --

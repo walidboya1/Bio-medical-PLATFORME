@@ -1,17 +1,14 @@
 <?php
-	error_reporting(0);
-	include 'config.php';
-	session_start();
-	if (empty($_SESSION['login_user'])){
-		header("location: index.php");
-		exit();
-	}
-	
-	if (is_numeric($_GET['user'])){
+	require 'required.php';
+	ismedecin();
+	$usern=$_GET['user'];
+	if (is_numeric($usern)){
 		$query = "select name,email_id,contact_no,img_url,user_type from user where id=".$_GET['user'];
 	}
 	else{
-		$query = "select name,email_id,contact_no,img_url,user_type from user where name='".$_GET['user']."'";
+		$usern=stripslashes($usern);
+		$usern=mysql_real_escape_string($usern);
+		$query = "select name,email_id,contact_no,img_url,user_type from user where name='".$usern."'";
 	}
 
 	$table = mysqli_query($connection,$query);
