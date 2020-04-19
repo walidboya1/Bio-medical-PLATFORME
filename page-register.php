@@ -1,3 +1,8 @@
+<?php
+
+  include 'required.php';
+  isadmin();
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -69,6 +74,10 @@
 
     <div class="form-group">
           <input type="text" id="reg_CIN" name="reg_CIN" class="form-control" placeholder="Identité National">
+        </div>
+
+    <div class="form-group">
+          <input type="text" id="reg_centre" name="reg_centre" class="form-control" placeholder="Centre">
         </div>
 
         <div class="form-group">
