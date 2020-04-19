@@ -3,7 +3,7 @@
 	include 'config.php';
 
 	if(isset($_GET['username'])){
-		$query = "select * from user where email_id='".$_GET['username']."'";
+		$query = sprintf("select * from user where email_id='%s'",$_GET['email_id']);
 		$table = mysqli_query($connection, $query);
 		if($table){
 			$rows=mysqli_num_rows($table);
