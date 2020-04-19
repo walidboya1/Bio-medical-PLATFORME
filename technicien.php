@@ -1,6 +1,8 @@
 <?php
   require 'required.php';
   istechnicien();
+  isuser($_GET['user']);
+  echo $_GET['user'];
 ?>
 
 <!DOCTYPE html>
