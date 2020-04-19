@@ -1,8 +1,8 @@
 
 <?php
-  error_reporting(0);
   require 'required.php';
   ismedecin();
+  isuser($_GET['user']);
 ?>
 <!DOCTYPE html>
 <html>
