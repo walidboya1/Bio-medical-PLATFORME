@@ -1,6 +1,7 @@
 <?php
   require 'required.php';
   istechnicien();
+  isuser($_GET['user']);
 ?>
 
 <!DOCTYPE html>
@@ -102,9 +103,11 @@
               <h5>Patient LIST</h5>
               <p>Here you can see all the patients that you have added with the responsible doctor and the interpretation if given.</p>
               <br>
- <br>
-              <a class="btn btn-round btn-primary" href="patientlisttech.php">See LIST</a>
+ <br><?php
+		$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlisttech.php?user=%d'>See LIST</a>",$_GET['user']);
+              echo $phr;
              
+?>
             </div>
 
           </div>

@@ -3,26 +3,6 @@
 	ismedecin();
 	$usern=$_GET['user'];
 	isuser($usern);
-	if (is_numeric($usern)){
-		$query = "select name,email_id,contact_no,img_url,user_type from user where id=".$_GET['user'];
-	}
-	else{
-		$usern=stripslashes($usern);
-		$usern=mysql_real_escape_string($usern);
-		$query = "select name,email_id,contact_no,img_url,user_type from user where name='".$usern."'";
-	}
-
-	$table = mysqli_query($connection,$query);
-		if($table){
-			$rows=mysqli_num_rows($table);
-			if($rows == 1){
-		    	$row = mysqli_fetch_assoc($table);
-		    	$dp = $row['img_url'];
-		    	$fullname = $row['name'];
-		    	$email = $row['email_id'];
-		    	$contact = $row['contact_no'];
-		    }
-		}	
 ?>
 
 

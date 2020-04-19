@@ -2,18 +2,10 @@
 
   include 'login.php';
   if (!empty($_SESSION['login_user'])){
-    header("location: profile.php?user=".$_SESSION['login_user']);
+    header("location: index.php");
     exit();
   }
-  $error = $_GET['error'];
-  $error = stripslashes($_GET['error']);
-  $error = mysql_real_escape_string($_GET['error']);
-  $error = strip_tags($_GET['error']);
-  echo "<center>$error</center>";
-
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
