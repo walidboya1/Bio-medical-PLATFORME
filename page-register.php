@@ -159,7 +159,7 @@
                     url: "check_email.php?username="+uname,
                     success: function(data){
                       $(".msg-alert p").html(data);
-                      if (data == "Email already exist."){
+                      if (data == "Email Available"){
                         $(".msg-alert p").css("background-color","green");
                       }
                       else{
