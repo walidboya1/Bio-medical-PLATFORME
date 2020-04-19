@@ -1,17 +1,9 @@
 <?php
-
-  include 'login.php';
   include 'required.php';
   if (!empty($_SESSION['login_user'])){
 	ismedecin();
 	istechnicien();
   }
-  $error = $_GET['error'];
-  $error = stripslashes($_GET['error']);
-  $error = mysql_real_escape_string($_GET['error']);
-  $error = strip_tags($_GET['error']);
-  echo "<center>$error</center>";
-
 ?>
 
 <!DOCTYPE html>
