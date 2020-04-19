@@ -58,8 +58,9 @@
 		$sessionu=stripslashes($sessionu);
 		clearStoredResults();
 		$query=sprintf("select prof from user where session='%s' and id=%d",$sessionu,$userid);
-		$table = mysqli_query($connection,$query);
-		if(!$table){
+		$result=mysqli_query($connection,$query);
+		$numr=mysqli_num_rows($result);
+		if($numr==0){
 			header("location: index.php");
 			exit();
 		}
