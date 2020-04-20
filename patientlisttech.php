@@ -147,6 +147,7 @@ if($table){
 				}
 			}
 			$deg_query = "SELECT id from technicien where id_user = '".$_SESSION['login_user']."'";
+
 			clearStoredResults();
 			$deg_table = mysqli_query($connection,$deg_query);
 			if($deg_table){

@@ -2,6 +2,8 @@
 	require 'required.php';
 	istechnicien();
 
+	$usern=$_GET['user'];
+	isuser($usern);
 ?>
 <!DOCTYPE html>
 <html>
@@ -91,7 +93,10 @@
           <div class="row">
             <div class="col-12 col-md-8 offset-md-2">
               
+
               <form method="post" enctype="multipart/form-data">
+
+
 
                 <div class="row">
                   <div class="form-group col-12 col-md-6">
@@ -116,9 +121,13 @@
                 </div>
 
                 
-
-
-
+                <div class="form-group input-group file-group">
+                  <input type="text" class="form-control file-value" name="files" id="files" placeholder="Choisir fichier..." readonly>
+                  <input type="file" multiple>
+                  <span class="input-group-btn">
+                    <button class="btn btn-white file-browser" type="button"><i class="fa fa-upload"></i></button>
+                  </span>
+                </div>
 
                 <div class="row">
                   <div class="form-group col-12 col-md-6">
@@ -131,9 +140,14 @@
               </div>
 
                 
+
 				<input  class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
 
                 <input class="btn btn-primary btn-block" type="submit" name="submit" value = "ADD PATIENT"></input>
+
+
+                <button class="btn btn-primary btn-block" type="submit">Ajouter Patient</button>
+
               </form>
 
             </div>
@@ -148,6 +162,7 @@
       | END Apply form
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
+
 
 
 
@@ -223,3 +238,18 @@ move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/'.$pname);
 }
  
 ?>
+
+
+
+
+
+
+
+    <!-- Scripts -->
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/thesaas.min.js"></script>
+    <script src="assets/js/script.js"></script>
+
+</body>
+</html>
+
