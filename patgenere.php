@@ -1,7 +1,6 @@
 <?php
 	require 'required.php';
 	ismedecin();
-	$usern=$_GET['user'];
 ?>
 
 

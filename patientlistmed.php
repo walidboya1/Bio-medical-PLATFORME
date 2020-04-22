@@ -2,7 +2,6 @@
 	require 'required.php';
 	ismedecin();
 	$usern=$_GET['user'];
-	isuser($usern);
 ?>
 
 
@@ -118,7 +117,7 @@ if($deg_table1){
 				    					if ($row) {
 											
 
-												$inst_query = "select nom from image join patient on image.Id_patient = patient.ID where patient.id_medecin = '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
+												$inst_query = "select nom from patient where id_medecin= '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
 												$inst_table = mysqli_query($connection, $inst_query);
 												if ($inst_table){
 													$inst_column = mysqli_fetch_assoc($inst_table);
@@ -151,7 +150,7 @@ if($deg_table1){
 												
 										}
 							
-      $deg_query = "SELECT id from medecin where id_user = '32'";
+      $deg_query = "SELECT id from medecin where id_user = = '".$_SESSION['login_user']."'";
 $deg_table = mysqli_query($connection,$deg_query);
 if($deg_table){
 								$deg_column=mysqli_num_rows($deg_table);
@@ -161,9 +160,49 @@ if($deg_table){
 
 				    					
 }
-} ?>
+} 
 
-						<button id="item-submit-edu" class="edit-button " >Save</button>
+						echo "<button id='item-submit-edu' class='btn btn-outline btn-primary' >Save</button><br><br>";
+
+							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					$quer= "SELECT * from image WHERE Id_patient ='".$deg_column['id']."'";	
+					clearStoredResults();
+					$tabl = mysqli_query($connection, $quer);
+   			// folder name on server 
+
+				if($tabl){
+
+					$row2=mysqli_num_rows($tabl);
+					if($row2 > 0){
+							echo "<span class='text-primary d-inline-block w-full'>The Patient FILES : </span>";
+						for($j = 0; $j < $row2; $j++) {
+							$dquery = sprintf("select Radio from image where Id_patient = '%d' LIMIT 1 OFFSET %d",$deg_column['id'],$j);
+				clearStoredResults();
+				$dtable = mysqli_query($connection, $dquery);
+				$dcolumn = mysqli_fetch_assoc($dtable);
+					$dat = $dcolumn['Radio'];
+         			$info = pathinfo("Upload/".$dat); 
+         			// get image size
+         			$size = ceil(filesize("Upload/".$dat)/1024); 
+         			if ($dat != "." && $dat != ".." && $dat != "" && $dat != "_notes" && $info['extension'] != "") { 
+         	?>
+            			<li style="margin-left: 15px;background-color: white; max-width: auto; padding: 10px 20px; border: 1px solid rgb(235,235,235); border-left: 2px solid green;"><a href="<?php echo $info['dirname']."/".$info['basename'];?>" title="Download" download><?php echo $info['filename']; ?></a><br><?php echo $info['extension']; ?> | <?php echo $size ; ?> kb </li><br>
+       	 			
+       	 	<?php 
+       	 			}
+       	 			else{
+       	 				    			echo "<span class='text-danger d-inline-block w-full'>CORRUPTED FILE.</span>";
+       	 			}
+      			
+    		}}
+    		else{
+    			echo "<span class='text-danger d-inline-block w-full'>THIS PATIENT HAVE NO FILES. </span>";
+    		}}}
+    		?> 
 </div>
 
 						   <?php

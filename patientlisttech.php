@@ -157,7 +157,48 @@ if($table){
 					echo "<input type='hidden' name='idmed' id='idmed' value ='".$deg_column['id']."' readonly>";
 				}
 			}
-			echo "<button id='item-submit-edu' class='edit-button'>Save</button>";
+			echo "<button id='item-submit-edu' class='btn btn-outline btn-primary' >Save</button><br><br>";
+
+							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					$quer= "SELECT * from image WHERE Id_patient ='".$deg_column['id']."'";	
+					clearStoredResults();
+					$tabl = mysqli_query($connection, $quer);
+   			// folder name on server 
+
+				if($tabl){
+
+					$row2=mysqli_num_rows($tabl);
+					if($row2 > 0){
+							echo "<span class='text-primary d-inline-block w-full'>The Patient FILES : </span>";
+						for($j = 0; $j < $row2; $j++) {
+							$dquery = sprintf("select Radio from image where Id_patient = '%d' LIMIT 1 OFFSET %d",$deg_column['id'],$j);
+				clearStoredResults();
+				$dtable = mysqli_query($connection, $dquery);
+				$dcolumn = mysqli_fetch_assoc($dtable);
+					$dat = $dcolumn['Radio'];
+         			$info = pathinfo("Upload/".$dat); 
+         			// get image size
+         			$size = ceil(filesize("Upload/".$dat)/1024); 
+         			if ($dat != "." && $dat != ".." && $dat != "" && $dat != "_notes" && $info['extension'] != "") { 
+         	?>
+            			<li style="margin-left: 15px;background-color: white; max-width: auto; padding: 10px 20px; border: 1px solid rgb(235,235,235); border-left: 2px solid green;"><a href="<?php echo $info['dirname']."/".$info['basename'];?>" title="Download" download><?php echo $info['filename']; ?></a><br><?php echo $info['extension']; ?> | <?php echo $size ; ?> kb </li><br>
+       	 			
+       	 	<?php 
+       	 			}
+       	 			else{
+       	 				    			echo "<span class='text-danger d-inline-block w-full'>CORRUPTED FILE.</span>";
+       	 			}
+      			
+    		}}
+    		else{
+    			echo "<span class='text-danger d-inline-block w-full'>THIS PATIENT HAVE NO FILES. </span>";
+    		}}}
+    		?> 
+		<?php
 			echo "</div>";
 			}
 			else {
