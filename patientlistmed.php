@@ -96,75 +96,71 @@
 
           <p class="text-center">
           	<form id="form-edu" action="update-pat.php"><?php
+clearStoredResults();
+$query = sprintf("SELECT * FROM patient join medecin on patient.id_medecin = medecin.ID where medecin.id_user = '%d'",$_SESSION['login_user']);
+$table = mysqli_query($connection,$query);
+if($table){
+	$rows=mysqli_num_rows($table);
+	if($rows > 0){
+		for($x = 0; $x < $rows; $x++) {
+		echo"<div class='divider'>Patient N° ".($x + 1)." </div>";
+		echo "<div class='section-dialog'>";
+		$row = mysqli_fetch_assoc($table);
+		if ($row) {
+			$inst_query = sprintf("select patient.nom from patient join medecin on patient.id_medecin = medecin.ID where patient.id_medecin = '%d' LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
+			clearStoredResults();
+			$inst_table = mysqli_query($connection, $inst_query);
+			if ($inst_table){
+				$inst_column = mysqli_fetch_assoc($inst_table);
+				echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> FULL NAME : ".$inst_column['nom']."</p>";
+				$inst_query2 = sprintf("select medecin.nom from patient join medecin on patient.id_medecin = medecin.ID where patient.id_medecin = '%d'  LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
+				clearStoredResults();
+				$inst_table2 = mysqli_query($connection, $inst_query2);
+				if ($inst_table2){
+					$inst_column2 = mysqli_fetch_assoc($inst_table2);
+					if (!empty($inst_column2['nom'])){
+						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> DOCTOR NAME : ".$inst_column2['nom']."</p>";
+					}
+					else{
+						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'>No doctor has taken the patient yet</p>";
+					}
+				}
+				$deg_query = sprintf("select sexe from patient where id_medecin = '%d' LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  SEXE :  ".$deg_column['sexe']." </p>";
+				}
+				$deg_query = sprintf("select age from patient where id_medecin = '%d' LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  AGE :  ".$deg_column['age']." </p>";
+				}
+				$deg_query = sprintf("select tele from patient where id_medecin = '%d' LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  PHONE NUMBER :  ".$deg_column['tele']." </p>";
+				}
+			}
+			$deg_query = "SELECT id from medecin where id_user = '".$_SESSION['login_user']."'";
 
-          	      $deg_query1 = "SELECT id from medecin where id_user ='".$_SESSION['login_user']."'";
-$deg_table1 = mysqli_query($connection,$deg_query1);
-if($deg_table1){
-								$deg_column1=mysqli_num_rows($deg_table1);
-								if($deg_column1 > 0){
-				    					$deg_column1 = mysqli_fetch_assoc($deg_table1);
+			clearStoredResults();
+			$deg_table = mysqli_query($connection,$deg_query);
+			if($deg_table){
+				$deg_column=mysqli_num_rows($deg_table);
+				if($deg_column == 1){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+					echo "<input type='hidden' name='idmed' id='idmed' value ='".$deg_column['id']."' readonly>";
+				}
+			}
+			echo "<button id='item-submit-edu' class='btn btn-outline btn-primary' >Save</button><br><br>";
 
-							$query = "SELECT * FROM image join patient on image.Id_patient = patient.ID where patient.id_medecin = '".$deg_column1['id']."'";
-							$table = mysqli_query($connection,$query);
-							if($table){
-								$rows=mysqli_num_rows($table);
-								if($rows > 0){
-										for($x = 0; $x < $rows; $x++) { 
-											echo"<div class='divider'>Patient N° ".($x + 1)." </div>";?>
-						<div class='section-dialog'>
-											<?php
-				    					$row = mysqli_fetch_assoc($table);
-				    					if ($row) {
-											
-
-												$inst_query = "select nom from patient where id_medecin= '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
-												$inst_table = mysqli_query($connection, $inst_query);
-												if ($inst_table){
-													$inst_column = mysqli_fetch_assoc($inst_table);
-													echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> FULL NAME : ".$inst_column['nom']."</p>";
-												
-												}
-
-												$deg_query = "select sexe from patient where id_medecin = '".$row['id_medecin']."' LIMIT 1 OFFSET ".$x;
-												$deg_table = mysqli_query($connection, $deg_query);
-												if ($deg_table){
-													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  SEXE :  ".$deg_column['sexe']." </p>";
-												}
-						
-												$deg_query = "select age from patient where id_medecin = '".$deg_column1['id']."' LIMIT 1 OFFSET ".$x;
-												$deg_table = mysqli_query($connection, $deg_query);
-												if ($deg_table){
-													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  AGE :  ".$deg_column['age']." </p>";
-												}
-
-												$deg_query = "select tele from patient where id_medecin = '".$deg_column1['id']."' LIMIT 1 OFFSET ".$x;
-												$deg_table = mysqli_query($connection, $deg_query);
-												if ($deg_table){
-													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  PHONE NUMBER :  ".$deg_column['tele']." </p>";
-												}
-
-												
-												
-										}
-							
-      $deg_query = "SELECT id from medecin where id_user = = '".$_SESSION['login_user']."'";
-$deg_table = mysqli_query($connection,$deg_query);
-if($deg_table){
-								$deg_column=mysqli_num_rows($deg_table);
-								if($deg_column == 1){
-				    					$deg_column = mysqli_fetch_assoc($deg_table);
-				    					echo "<input type='hidden' name='idmed' id='idmed' value ='".$deg_column['id']."' readonly>";
-
-				    					
-}
-} 
-
-						echo "<button id='item-submit-edu' class='btn btn-outline btn-primary' >Save</button><br><br>";
-
-							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
+							$deg_query = sprintf("select id from patient where id_medecin = '%d' LIMIT 1 OFFSET %d",$row['id_medecin'],$x);
 				clearStoredResults();
 				$deg_table = mysqli_query($connection, $deg_query);
 				if ($deg_table){
@@ -203,36 +199,18 @@ if($deg_table){
     			echo "<span class='text-danger d-inline-block w-full'>THIS PATIENT HAVE NO FILES. </span>";
     		}}}
     		?> 
-</div>
-
-						   <?php
-
-						    }}
-						    else {
-						    	?>
-						    	<div class="container text-center">
-						    	<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class="text-danger display-4">You have no patients</h1></span>
-						    </div>
-						   <?php 
-						
-					}
-
-								}}}
-						?>
-</div></form>
-						</p>
-					
-
-
-
-
-
-        </div>
-
-
-
-      </section>
-
+		<?php
+			echo "</div>";
+			}
+			else {
+				echo "<div class='container text-center'>";
+				echo "<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class='text-danger display-4'>You have no patients</h1></span>";
+				echo "</div>";
+			}
+		}
+		}
+}
+?>
    
 
 
