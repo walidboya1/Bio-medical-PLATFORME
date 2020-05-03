@@ -46,7 +46,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
           </div>
 
         </div>
@@ -93,7 +93,7 @@
 
 
           <p class="text-center">
-          	<form id="form-edu" action="update-pat.php">
+          	<form id="form-edu" method="post" enctype="multipart/form-data">
 <?php
 clearStoredResults();
 $query = sprintf("SELECT * FROM patient join technicien on patient.id_technicien = technicien.ID where technicien.id_user = '%d'",$_SESSION['login_user']);
@@ -146,18 +146,9 @@ if($table){
 					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  PHONE NUMBER :  ".$deg_column['tele']." </p>";
 				}
 			}
-			$deg_query = "SELECT id from technicien where id_user = '".$_SESSION['login_user']."'";
-
-			clearStoredResults();
-			$deg_table = mysqli_query($connection,$deg_query);
-			if($deg_table){
-				$deg_column=mysqli_num_rows($deg_table);
-				if($deg_column == 1){
-					$deg_column = mysqli_fetch_assoc($deg_table);
-					echo "<input type='hidden' name='idmed' id='idmed' value ='".$deg_column['id']."' readonly>";
-				}
-			}
-			echo "<button id='item-submit-edu' class='btn btn-outline btn-primary' >Save</button><br><br>";
+	
+			echo "<input  class='btn btn-white btn-block file-browser' type='File' name='file".$x."[]' id='file".$x."' multiple></input><br><br>";
+			echo "<input class='btn btn-primary btn-block' type='submit' name='submit".$x."' id='submit".$x."' value = 'ADD FILES'></input>";
 
 							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
 				clearStoredResults();
@@ -185,7 +176,7 @@ if($table){
          			$size = ceil(filesize("Upload/".$dat)/1024); 
          			if ($dat != "." && $dat != ".." && $dat != "" && $dat != "_notes" && $info['extension'] != "") { 
          	?>
-            			<li style="margin-left: 15px;background-color: white; max-width: auto; padding: 10px 20px; border: 1px solid rgb(235,235,235); border-left: 2px solid green;"><a href="<?php echo $info['dirname']."/".$info['basename'];?>" title="Download" download><?php echo $info['filename']; ?></a><br><?php echo $info['extension']; ?> | <?php echo $size ; ?> kb </li><br>
+            			<li style="margin-left: 15px;background-color: white; max-width: auto; padding: 10px 20px; border: 1px solid rgb(235,235,235); border-left: 2px solid green; list-style-type: none;"><a href="<?php echo $info['dirname']."/".$info['basename'];?>" title="Download" download><?php echo $info['filename']; ?></a><br><?php echo $info['extension']; ?> | <?php echo $size ; ?> kb </li><br>
        	 			
        	 	<?php 
        	 			}
@@ -197,8 +188,36 @@ if($table){
     		else{
     			echo "<span class='text-danger d-inline-block w-full'>THIS PATIENT HAVE NO FILES. </span>";
     		}}}
-    		?> 
-		<?php
+
+
+if (isset($_POST["submit".$x]))
+ {
+
+							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
+				clearStoredResults();
+				$deg_table = mysqli_query($connection, $deg_query);
+				if ($deg_table){
+					$deg_column = mysqli_fetch_assoc($deg_table);
+    	$filecount = count($_FILES['file'.$x]['name']);
+    	$pname1 = $_FILES['file'.$x]['name'][0];
+if ($pname1 <> ""){
+for($i=0;$i<$filecount;$i++){
+    $pname = $_FILES['file'.$x]['name'][$i];
+
+    #sql query to insert into database
+    $sql = "INSERT into image(Radio,Id_patient) values ('$pname','".$deg_column['id']."') "; 
+ clearStoredResults();
+
+    if(mysqli_query($connection,$sql)){
+echo "succes";
+  }
+    else{
+        echo "Error";
+    }
+move_uploaded_file($_FILES['file'.$x]['tmp_name'][$i], 'upload/'.$pname);
+
+}
+}header("Refresh:0; url=patientlisttech.php?user=".$_SESSION['login_user']);}}
 			echo "</div>";
 			}
 			else {
@@ -210,10 +229,14 @@ if($table){
 		}
 }
 ?>
+
+</form>
     <!-- Scripts -->
     <script src="assets/js/core.min.js"></script>
     <script src="assets/js/thesaas.min.js"></script>
     <script src="assets/js/script.js"></script>
+
+
 
 </body>
 </html>

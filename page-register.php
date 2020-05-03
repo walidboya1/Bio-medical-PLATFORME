@@ -28,11 +28,38 @@
 
   <body class="mh-fullscreen bg-img center-vh p-20" style="background-image: url(assets/img/bg-girl.jpg);">
 
+  <!--
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      | Topbar
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      !-->
+
+      <nav class="topbar topbar-expand-md topbar-nav-centered topbar-inverse topbar-sticky">
+        <div class="container">
+          
+          <div class="topbar-left">
+            <button class="topbar-toggler">&#9776;</button>
+            <a class="topbar-brand" href="index.php">
+              <img class="logo-default" src="assets/img/logo.png" alt="logo">
+              <img class="logo-inverse" src="assets/img/logo.png" alt="logo">
+            </a>
+          </div>
+
+
+
+
+          <div class="topbar-right">
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+          </div>
+
+        </div>
+      </nav>
+      <!---- END topbar---->
 
 
 
     <div class="card card-shadowed p-50 w-400 mb-0" style="max-width: 100%">
-      <h5 class="text-uppercase text-center">S'enregistrer</h5>
+      <h5 class="text-uppercase text-center">ADD User Info</h5>
       <br><br>
 
 
@@ -46,13 +73,23 @@
                   <input type="radio" class="custom-control-input" name="radio1" id="medecin" value="medecin" disabled="">
                   <a class="show-medecin-form"><span class="custom-control-indicator"></span></a>
 
-                  <span class="custom-control-description">Medecin</span>
+                  <span class="custom-control-description">Doctor</span>
                 </label>
                 <label class="custom-control custom-radio">
                   <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
                   <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Technicien</span>
+                  <span class="custom-control-description">Technician</span>
                 </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Technician</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Technician</span>
+                </label>                
 </div>
         <div class="form-group">
           <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" placeholder="Nom">

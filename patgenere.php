@@ -47,7 +47,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
           </div>
 
         </div>

@@ -1,9 +1,7 @@
 <?php
-	require 'required.php';
-	istechnicien();
+  require 'required.php';
+  istechnicien();
 
-	$usern=$_GET['user'];
-	isuser($usern);
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +45,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="index.php">Se deconnecter</a>
+            <a class="btn btn-sm btn-danger mr-4" href="index.php">Disconnect</a>
           </div>
 
         </div>
@@ -121,13 +119,7 @@
                 </div>
 
                 
-                <div class="form-group input-group file-group">
-                  <input type="text" class="form-control file-value" name="files" id="files" placeholder="Choisir fichier..." readonly>
-                  <input type="file" multiple>
-                  <span class="input-group-btn">
-                    <button class="btn btn-white file-browser" type="button"><i class="fa fa-upload"></i></button>
-                  </span>
-                </div>
+
 
                 <div class="row">
                   <div class="form-group col-12 col-md-6">
@@ -141,12 +133,11 @@
 
                 
 
-				<input  class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
+        <input  class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
 
                 <input class="btn btn-primary btn-block" type="submit" name="submit" value = "ADD PATIENT"></input>
 
 
-                <button class="btn btn-primary btn-block" type="submit">Ajouter Patient</button>
 
               </form>
 
@@ -188,20 +179,16 @@ $Age = $_POST['age'];
 $tele = $_POST['tele'];
 $type = $_POST['type'];
 $date = $_POST['date'];
-if (empty($nom) || empty($sexe) || empty($age) || empty($tele) || empty($date)  )
-{
-echo "Finishe the sign up for the patient";
-}
-else{
+
 clearStoredResults();
 $query = sprintf("SELECT * FROM technicien where technicien.id_user = '%d'",$_SESSION['login_user']);
 
 $table = mysqli_query($connection,$query);
 if($table){
-	$rows=mysqli_num_rows($table);
-		if($rows > 0){
-	$row = mysqli_fetch_assoc($table);
-		if ($row) {
+  $rows=mysqli_num_rows($table);
+    if($rows > 0){
+  $row = mysqli_fetch_assoc($table);
+    if ($row) {
 $query1 = sprintf("INSERT INTO patient(id_technicien,age,sexe,nom,tele) values('%d','%d','%s','%s','%s')",$row['id'],$Age,$sexe,$nom,$tele);
 clearStoredResults();
 $table1 = mysqli_query($connection,$query1);
@@ -211,14 +198,16 @@ $query2 = sprintf("SELECT id FROM patient where nom = '$nom' and id_technicien =
 clearStoredResults();
 $table2 = mysqli_query($connection,$query2);
 if($table2){
-	$rows1=mysqli_num_rows($table2);
-		if($rows1 > 0){
-	$row1 = mysqli_fetch_assoc($table2);
-		if ($row1) {
+  $rows1=mysqli_num_rows($table2);
+    if($rows1 > 0){
+  $row1 = mysqli_fetch_assoc($table2);
+    if ($row1) {
 
 $filecount = count($_FILES['file']['name']);
+  $pname1 = $_FILES['file']['name'][0];
+if ($pname1 <> ""){
 for($i=0;$i<$filecount;$i++){
-    $pname = $_FILES['file']['name'][$i];
+    $pname = "".$row1['id']."".$_FILES['file']['name'][$i];
 
     #sql query to insert into database
     $sql = "INSERT into image(Radio,Date,Type,Id_patient) values ('$pname','date','$type','".$row1['id']."') "; 
@@ -233,8 +222,8 @@ echo "succes";
 move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/'.$pname);
 
 }
-}
- }}}}}}
+}}
+ }}}}}header("Refresh:0; url=index.php?user=".$_SESSION['login_user']);
 }
  
 ?>
