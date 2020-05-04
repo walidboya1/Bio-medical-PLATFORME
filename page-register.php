@@ -58,7 +58,7 @@
 
 
 
-    <div class="card card-shadowed p-50 w-400 mb-0" style="max-width: 100%">
+    <div class="card card-shadowed p-50 w-500 mb-0" style="max-width: 100%">
       <h5 class="text-uppercase text-center">ADD User Info</h5>
       <br><br>
 
@@ -69,26 +69,25 @@
 <form name="login" method="post" action="signup.php" class="technicien-form">
          <fieldset>
 <div class="form-group">
-              <label class="custom-control custom-radio">
+                <label class="custom-control custom-radio">
                   <input type="radio" class="custom-control-input" name="radio1" id="medecin" value="medecin" disabled="">
                   <a class="show-medecin-form"><span class="custom-control-indicator"></span></a>
-
-                  <span class="custom-control-description">Doctor</span>
+                  <a class="show-medecin-form"><span class="custom-control-description">Medecin</span></a>
                 </label>
                 <label class="custom-control custom-radio">
                   <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
                   <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Technician</span>
+                  <span class="custom-control-description">Technicien</span>
                 </label>
                 <label class="custom-control custom-radio">
-                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Technician</span>
+                  <input type="radio" class="custom-control-input" name="radio1" id="Centre" value="Centre" disabled="">
+                  <a class="show-Centre-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-Centre-form"><span class="custom-control-description">Centre</span></a>
                 </label>
                 <label class="custom-control custom-radio">
-                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" checked="">
-                  <span class="custom-control-indicator"></span>
-                  <span class="custom-control-description">Technician</span>
+                  <input type="radio" class="custom-control-input" name="radio1" id="Admin"  value="Admin" disabled="">
+                  <a class="show-admin-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-admin-form"><span class="custom-control-description">Admin</span></a>
                 </label>                
 </div>
         <div class="form-group">
@@ -114,7 +113,7 @@
         </div>
 
     <div class="form-group">
-          <input type="text" id="reg_centre" name="reg_centre" class="form-control" placeholder="Centre">
+          <input type="text" id="reg_Centre" name="reg_Centre" class="form-control" placeholder="Centre">
         </div>
 
         <div class="form-group">
@@ -127,13 +126,15 @@
 
 
     <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
       </fieldset>
       </form>
 
+<!--------------------------------------------------------------------------------------------------------------------------------------->
 
 <form action="signup.php" method="POST" class="medecin-form"  style="display:none;">
 <div class="form-group">
+  <fieldset>
              <label class="custom-control custom-radio">
                   <input type="radio" class="custom-control-input" name="radio1" id="medecin"  value="medecin"  checked="">
                   <span class="custom-control-indicator"></span>
@@ -143,7 +144,17 @@
                 <label class="custom-control custom-radio">
                   <input type="radio" class="custom-control-input" name="radio1" id="technicien"   value="technicien"  disabled="">
                   <a class="show-technicien-form"><span class="custom-control-indicator"></span></a>
-                  <span class="custom-control-description">Technicien</span>
+                  <a class="show-technicien-form"><span class="custom-control-description">Technicien</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Centre" value="Centre" disabled="">
+                  <a class="show-Centre-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-Centre-form"><span class="custom-control-description">Centre</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Admin"  value="Admin" disabled="">
+                  <a class="show-admin-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-admin-form"><span class="custom-control-description">Admin</span></a>
                 </label>
 </div>
         <div class="form-group">
@@ -185,26 +196,140 @@
         </div>
 
         <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Register</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+</fieldset>
+</form>
 
+<!------------------------------------------------------------------------------------------------------------------------------------------>
+
+<form action="signup.php" method="Post" class="Centre-form"  style="display:none;">
+  <fieldset>
+<div class="form-group">
+             <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="medecin"  value="medecin"  disabled="">
+                  <a class="show-medecin-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-medecin-form"><span class="custom-control-description">Medecin</span></a>
+                </label>
+
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"   value="technicien"  disabled="">
+                  <a class="show-technicien-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-technicien-form"><span class="custom-control-description">Technicien</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Centre"  value="Centre" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Centre</span>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Admin"  value="Admin" disabled="">
+                  <a class="show-admin-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-admin-form"><span class="custom-control-description">Admin</span></a>
+                </label>
+</div>
+        <div class="form-group">
+          <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" placeholder="Nom">
+        </div> 
+          
+          
+
+<div class="form-group">
+          <input type="text" id="reg_prenom" name="reg_prenom" pattern="^[a-zA-Z ]+$" placeholder="Prenom" class="form-control" placeholder="Prenom">
+        </div>                                                                                                                                                     
+
+        <div class="form-group">
+          <input type="email" id="reg_email" name="reg_email" class="form-control" onchange ="check_email()" placeholder="Adresse mail">
+        </div>
+
+        <div class="form-group">
+          <input type="phone" id="reg_phone" name="reg_phone" class="form-control" placeholder="N° de télephone">
+        </div>
+
+
+
+    <div class="form-group">
+          <input type="text" id="reg_med" name="reg_med" class="form-control" placeholder="Identité Medecin">
+        </div>
+
+  <div class="form-group">
+          <input type="text" id="reg_site" name="reg_site" class="form-control" placeholder="Adresse">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="reg_passwd" name="reg_passwd" class="form-control" placeholder="Mot de Passe">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
+        </div>
+
+        <br>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+</fieldset>
+</form>
+
+<!--------------------------------------------------------------------------------------------------------------------------------------->
+
+<form name="login" method="post" action="signup.php" class="admin-form" style="display:none;">
+         <fieldset>
+<div class="form-group">
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="medecin" value="medecin" disabled="">
+                  <a class="show-medecin-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-medecin-form"><span class="custom-control-description">Medecin</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="technicien"  value="technicien" disabled="">
+                  <a class="show-technicien-form"><span class="custom-control-indicator"></span></a>
+                  <a class="show-technicien-form"><span class="custom-control-description">Technicien</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Centre" value="Centre" disabled="">
+                 <a class="show-Centre-form"><span class="custom-control-indicator"></span></a>
+                 <a class="show-Centre-form"><span class="custom-control-description">Centre</span></a>
+                </label>
+                <label class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" name="radio1" id="Admin"  value="Admin" checked="">
+                  <span class="custom-control-indicator"></span>
+                  <span class="custom-control-description">Admin</span>
+                </label>                
+</div>
+     
+
+        <div class="form-group">
+          <input type="email" id="reg_email" name="reg_email" class="form-control" onchange ="check_email()" placeholder="Adresse mail">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="reg_passwd" name="reg_passwd" class="form-control" placeholder="Mot de Passe">
+        </div>
+
+        <div class="form-group">
+          <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
+        </div>
+
+
+    <br>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+      </fieldset>
       </form>
+
+
 
 <script type="text/javascript">
             function check_email(){
               var uname = $("#reg_email").val();
               $.ajax({
-                    url: "check_email.php?username="+uname,
+                    url: "check_email.php?email="+uname,
                     success: function(data){
                       $(".msg-alert p").html(data);
                       if (data == "Email Available"){
-                        $(".msg-alert p").css("background-color","green");
+                        <?php echo "kayn" ?>
                       }
                       else{
-                        $(".msg-alert p").css("background-color","red");
+                        <?php echo "makaynch" ?>
                       }
-                      $(".msg-alert").show(0,function(){
-                        $(".msg-alert").delay(3000).fadeOut('slow');
-                      });
+                     
                     }
                   });
           }
@@ -215,14 +340,88 @@
 
 
 <script type="text/javascript">
+  //---------------------------------
 $('.technicien-form a.show-medecin-form').click(function(){
   $('.technicien-form').hide();
+  $('.Centre-form').hide();
+  $('.admin-form').hide();
   $('.medecin-form').show();  
 });
+
+$('.technicien-form a.show-Centre-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.admin-form').hide(); 
+  $('.Centre-form').show(); 
+});
+$('.technicien-form a.show-admin-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.Centre-form').hide();
+  $('.admin-form').show(); 
+});
+//---------------------------------
+//---------------------------------
 $('.medecin-form a.show-technicien-form').click(function(){
   $('.medecin-form').hide(); 
+  $('.Centre-form').hide();
+  $('.admin-form').hide();
   $('.technicien-form').show(); 
 });
+$('.medecin-form a.show-Centre-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.admin-form').hide(); 
+  $('.Centre-form').show(); 
+});
+$('.medecin-form a.show-admin-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.Centre-form').hide();
+  $('.admin-form').show(); 
+});
+//---------------------------------
+//---------------------------------
+$('.Centre-form a.show-technicien-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.Centre-form').hide();
+  $('.admin-form').hide();
+  $('.technicien-form').show(); 
+});
+$('.Centre-form a.show-medecin-form').click(function(){
+  $('.Centre-form').hide(); 
+  $('.technicien-form').hide();
+  $('.admin-form').hide(); 
+  $('.medecin-form').show(); 
+});
+$('.Centre-form a.show-admin-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.Centre-form').hide();
+  $('.admin-form').show(); 
+});
+//---------------------------------
+//---------------------------------
+$('.admin-form a.show-technicien-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.Centre-form').hide();
+  $('.admin-form').hide();
+  $('.technicien-form').show(); 
+});
+$('.admin-form a.show-medecin-form').click(function(){
+  $('.Centre-form').hide(); 
+  $('.technicien-form').hide();
+  $('.admin-form').hide(); 
+  $('.medecin-form').show(); 
+});
+$('.admin-form a.show-Centre-form').click(function(){
+  $('.medecin-form').hide(); 
+  $('.technicien-form').hide();
+  $('.admin-form').hide();
+  $('.Centre-form').show(); 
+});
+//---------------------------------
+
 </script>
 
 </div>
