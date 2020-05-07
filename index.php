@@ -111,7 +111,7 @@
                 <div class="col-12 col-md-6 text-center text-md-left">
                   <img class="logo-default" src="assets/img/image13.png" alt="logo">
                   <h6 class="text-uppercase mb-3">Outils</h6>
-                  <p class="fs-14">La mise à disposition d’outils de formation médicale continue, accessibles en ligne, participant au développement et à l’amélioration des compétences en radiologie et en imagerie médicale dans le zones à faible démographie médicale.</p>
+                  <p class="fs-14">La mise à disposition d’outils de formation médicale continue, accessibles en ligne, participant au développement et à l’amélioration des compétences en radiologie et en imagerie médicale dans les zones à faible démographie médicale.</p>
                 </div>
 
 
