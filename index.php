@@ -22,8 +22,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
   </head>
 
   <body id="home">
@@ -36,7 +36,7 @@
           
           <div class="topbar-left">
             <button class="topbar-toggler">&#9776;</button>
-            <a class="topbar-brand" href="index.html">
+            <a class="topbar-brand" href="index.php">
               <img class="logo-default" src="assets/img/logo.png" alt="logo">
               <img class="logo-inverse" src="assets/img/logo.png" alt="logo">
             </a>

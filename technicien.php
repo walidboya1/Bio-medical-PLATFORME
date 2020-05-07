@@ -19,8 +19,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
 
 	<title>TELERADIO - Technicien</title>
 </head>
@@ -88,9 +88,9 @@
 
             <div class="offset-1 col-10 col-md-4 py-90">
               <h5>Remplir la fiche d'un patient</h5>
-              <p>Ici vous trouverez le formulaire concernant la fiche de vôtre patient, Veuillez la remplire pour l'ajouter à vôtre base de donné.</p>
+              <p>Vous trouverez ici, la fiche de votre patient. Veuillez la renseigner pour pouvoir l'ajouter à votre base de données.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="fichepat.php">voire fiche</a>
+              <a class="btn btn-round btn-primary" href="fichepat.php">VOIR fiche</a>
             </div>
 
           </div>
@@ -104,7 +104,7 @@
               <p>Ici, vous pouvez voir tous les patients que vous avez ajoutés ainsi que le médecin responsable et les interprétations.</p>
               <br>
  <br><?php
-		$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlisttech.php?user=%d'>VOIRE LISTE</a>",$_GET['user']);
+		$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlisttech.php?user=%d'>VOIR LISTE</a>",$_GET['user']);
               echo $phr;
              
 ?>

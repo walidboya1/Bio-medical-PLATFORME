@@ -18,8 +18,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
 
   <title>TELERADIO - Technicien</title>
 </head>
@@ -45,7 +45,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="index.php">Se deconnecter</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -223,7 +223,7 @@ move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/'.$pname);
 
 }
 }}
- }}}}}header("Refresh:0; url=index.php?user=".$_SESSION['login_user']);
+ }}}}}
 }
  
 ?>

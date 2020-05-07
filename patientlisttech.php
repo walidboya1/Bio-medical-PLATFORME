@@ -19,8 +19,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
 
     <!-- Favicons -->
-    <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
-    <link rel="icon" href="assets/img/favicon.png">
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
 
 	<title>TELERADIO - Medecin</title>
 </head>
@@ -217,7 +217,7 @@ echo "succes";
 move_uploaded_file($_FILES['file'.$x]['tmp_name'][$i], 'upload/'.$pname);
 
 }
-}header("Refresh:0; url=patientlisttech.php?user=".$_SESSION['login_user']);}}
+}}}
 			echo "</div>";
 			}
 			else {
