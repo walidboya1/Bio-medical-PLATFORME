@@ -46,7 +46,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -88,7 +88,7 @@
 
             <div class="offset-1 col-10 col-md-4 py-90">
               <h5>Remplir la fiche d'un patient</h5>
-              <p>Ici vous trouverez le formulaire concernant la fiche de vôtre patient, veillez la remplire pour l'ajouter à vôtre base de donné.</p>
+              <p>Ici vous trouverez le formulaire concernant la fiche de vôtre patient, Veuillez la remplire pour l'ajouter à vôtre base de donné.</p>
               <br>
               <a class="btn btn-round btn-primary" href="fichepat.php">voire fiche</a>
             </div>
@@ -100,11 +100,11 @@
             <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/bg-girl.jpg); min-height: 300px;"></div>
 
             <div class="offset-1 col-10 col-md-4 py-90 order-md-first">
-              <h5>Patient LIST</h5>
-              <p>Here you can see all the patients that you have added with the responsible doctor and the interpretation if given.</p>
+              <h5>LISTE des patients</h5>
+              <p>Ici, vous pouvez voir tous les patients que vous avez ajoutés ainsi que le médecin responsable et les interprétations.</p>
               <br>
  <br><?php
-		$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlisttech.php?user=%d'>See LIST</a>",$_GET['user']);
+		$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlisttech.php?user=%d'>VOIRE LISTE</a>",$_GET['user']);
               echo $phr;
              
 ?>

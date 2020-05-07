@@ -45,7 +45,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="index.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="index.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -84,7 +84,7 @@
           <header class="section-header">
             <h2>Fiche du patient</h2>
             <hr>
-            <p class="lead">Veillez Remplir la fiche du patient s'il vous plaît.</p>
+            <p class="lead">Veuillez renseigner la fiche du patient s'il vous plaît.</p>
           </header>
 
 
@@ -135,7 +135,7 @@
 
         <input  class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
 
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value = "ADD PATIENT"></input>
+                <input class="btn btn-primary btn-block" type="submit" name="submit" value = "AJOUTER PATIENT"></input>
 
 
 

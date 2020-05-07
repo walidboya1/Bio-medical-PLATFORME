@@ -45,15 +45,14 @@
 
           <div class="topbar-right">
           <ul class="topbar-nav nav">
-            <li class="nav-item"><a class="nav-link" href="#" data-scrollto="home">Acceuil</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-scrollto="home">Accueil</a></li>
             <li class="nav-item"><a class="nav-link" href="#" data-scrollto="section-features">Caractéristiques</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" data-scrollto="section-review">Reviews</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" data-scrollto="section-contact">Contact</a></li>
           </ul>
 
 
             <div class="d-inline-flex ml-30">
               <a class="btn btn-sm btn-primary mr-4" href="page-login.php">Se Connecter</a>
-              <a class="btn btn-sm btn-outline btn-primary hidden-sm-down" href="page-register.php">S'Inscrire</a>
             </div>
           </div>
 
@@ -79,7 +78,6 @@
             <br><br><br>
 
             <a class="btn btn-lg btn-round w-200 btn-primary mr-16" href="page-login.php">Se Connecter</a>
-            <a class="btn btn-lg btn-round w-200 btn-outline btn-primary hidden-sm-down" href="page-register.php">S'Inscrire</a>
 
           </div>
 
@@ -156,18 +154,30 @@
         </div>
       </section>
 
+
+
+
+<section class="section section-inverse bg-img" id = "section-contact" style="background-image: url(assets/img/Contact.jpg)" data-overlay="9">
+        <div class="container">
+          <div class="row gap-y align-items-center">
+
+            <div class="col-12 col-md-5">
+              <h5>TELERADIOLOGUE</h5>
+              <br>
+              <p>Enset, B.P.، 6207 Avenue des Forces Armées Royales,<br> Rabat 10100</p>
+              <p>Telephone : +212 641-074998<br>Email: sara@gmail.com</p>
+            </div>
+
+
+            <div class="col-12 col-md-7">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3308.9211880301536!2d-6.879510885447033!3d33.968865129568144!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda76cd636524c15%3A0x44e58194058c4051!2sHigher%20School%20of%20Technical%20Education%20of%20Rabat!5e0!3m2!1sen!2sma!4v1588778359082!5m2!1sen!2sma" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
     <!-- END Main container -->
-
-
-
-
-
-
-    <!-- Footer -->
-   
-    <!-- END Footer -->
-
-
 
     <!-- Scripts -->
     <script src="assets/js/core.min.js"></script>

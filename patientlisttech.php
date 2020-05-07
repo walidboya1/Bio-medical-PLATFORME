@@ -46,7 +46,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -63,7 +63,7 @@
         <div class="row h-full">
           <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
 
-            <h5 class="display-4">PATIENT FILE</h5>
+            <h5 class="display-4">DOSSIER PATIENT</h5>
            
           </div>
         </div>
@@ -86,9 +86,9 @@
 <section class="section bg-gray">
         <div class="container ">
           <header class="section-header">
-            <h2>PATIENT FILE</h2>
+            <h2>DOSSIER PATIENT</h2>
             <hr>
-            <p class="lead">here you have your patient informations</p>
+            <p class="lead">ici vous trouverez les informations de vos patients</p>
           </header>
 
 
@@ -111,17 +111,17 @@ if($table){
 			$inst_table = mysqli_query($connection, $inst_query);
 			if ($inst_table){
 				$inst_column = mysqli_fetch_assoc($inst_table);
-				echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> FULL NAME : ".$inst_column['nom']."</p>";
+				echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> NOM COMPLET : ".$inst_column['nom']."</p>";
 				$inst_query2 = sprintf("select medecin.nom from patient join medecin on patient.id_medecin = medecin.ID where patient.id_technicien = '%d'  LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
 				clearStoredResults();
 				$inst_table2 = mysqli_query($connection, $inst_query2);
 				if ($inst_table2){
 					$inst_column2 = mysqli_fetch_assoc($inst_table2);
 					if (!empty($inst_column2['nom'])){
-						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> DOCTOR NAME : ".$inst_column2['nom']."</p>";
+						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> NOM DU MEDECIN : ".$inst_column2['nom']."</p>";
 					}
 					else{
-						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'>No doctor has taken the patient yet</p>";
+						echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'>Aucun médecin n'a encore pris le patient</p>";
 					}
 				}
 				$deg_query = sprintf("select sexe from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
@@ -143,12 +143,12 @@ if($table){
 				$deg_table = mysqli_query($connection, $deg_query);
 				if ($deg_table){
 					$deg_column = mysqli_fetch_assoc($deg_table);
-					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  PHONE NUMBER :  ".$deg_column['tele']." </p>";
+					echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  NUMÉRO DE TÉLÉPHONE :  ".$deg_column['tele']." </p>";
 				}
 			}
 	
 			echo "<input  class='btn btn-white btn-block file-browser' type='File' name='file".$x."[]' id='file".$x."' multiple></input><br><br>";
-			echo "<input class='btn btn-primary btn-block' type='submit' name='submit".$x."' id='submit".$x."' value = 'ADD FILES'></input>";
+			echo "<input class='btn btn-primary btn-block' type='submit' name='submit".$x."' id='submit".$x."' value = 'AJOUTER LES FICHIERS'></input>";
 
 							$deg_query = sprintf("select id from patient where id_technicien = '%d' LIMIT 1 OFFSET %d",$row['id_technicien'],$x);
 				clearStoredResults();
@@ -164,7 +164,7 @@ if($table){
 
 					$row2=mysqli_num_rows($tabl);
 					if($row2 > 0){
-							echo "<span class='text-primary d-inline-block w-full'>The Patient FILES : </span>";
+							echo "<span class='text-primary d-inline-block w-full'>DOSSIER PATIENT : </span>";
 						for($j = 0; $j < $row2; $j++) {
 							$dquery = sprintf("select Radio from image where Id_patient = '%d' LIMIT 1 OFFSET %d",$deg_column['id'],$j);
 				clearStoredResults();
@@ -181,12 +181,12 @@ if($table){
        	 	<?php 
        	 			}
        	 			else{
-       	 				    			echo "<span class='text-danger d-inline-block w-full'>CORRUPTED FILE.</span>";
+       	 				    			echo "<span class='text-danger d-inline-block w-full'>FICHIER CORROMPU.</span>";
        	 			}
       			
     		}}
     		else{
-    			echo "<span class='text-danger d-inline-block w-full'>THIS PATIENT HAVE NO FILES. </span>";
+    			echo "<span class='text-danger d-inline-block w-full'>CE PATIENT N'A PAS DE FICHIERS.</span>";
     		}}}
 
 
@@ -222,7 +222,7 @@ move_uploaded_file($_FILES['file'.$x]['tmp_name'][$i], 'upload/'.$pname);
 			}
 			else {
 				echo "<div class='container text-center'>";
-				echo "<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class='text-danger display-4'>You have no patients</h1></span>";
+				echo "<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class='text-danger display-4'>Vous n'avez pas de patients</h1></span>";
 				echo "</div>";
 			}
 		}

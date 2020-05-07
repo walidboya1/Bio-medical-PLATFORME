@@ -46,7 +46,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -106,7 +106,7 @@
               <p>Ici vous pourriez consulter la liste des patient que vous avez aussi voir la fiche d'un patient et donner une interpretation à propot de ce dernier.</p>
 <br>
 <?php
-	$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlistmed.php?user=%d'>See LIST</a>",$_GET['user']);
+	$phr=sprintf("<a class='btn btn-round btn-primary' href='patientlistmed.php?user=%d'>VOIRE LISTE</a>",$_GET['user']);
 	echo $phr;
 ?>
             </div>

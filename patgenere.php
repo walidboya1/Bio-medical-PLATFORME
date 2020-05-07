@@ -47,7 +47,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -64,7 +64,7 @@
         <div class="row h-full">
           <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
 
-            <h5 class="display-4">PATIENT FILE</h5>
+            <h5 class="display-4">DOSSIER PATIENT</h5>
            
           </div>
         </div>
@@ -87,9 +87,9 @@
 <section class="section bg-gray">
         <div class="container">
           <header class="section-header">
-            <h2>PATIENT FILE</h2>
+            <h2>DOSSIER PATIENT</h2>
             <hr>
-            <p class="lead">here you have your patient informations</p>
+            <p class="lead">ici vous trouverez les informations de vos patients</p>
           </header>
 
 
@@ -117,7 +117,7 @@
 												$inst_table = mysqli_query($connection, $inst_query);
 												if ($inst_table){
 													$inst_column = mysqli_fetch_assoc($inst_table);
-													echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> FULL NAME : ".$inst_column['nom']."</p>";
+													echo "<p   style='padding-bottom: 10px; font-size:18px; font-weight:bold'> NOM COMPLET : ".$inst_column['nom']."</p>";
 												
 												}
 
@@ -139,7 +139,7 @@
 												$deg_table = mysqli_query($connection, $deg_query);
 												if ($deg_table){
 													$deg_column = mysqli_fetch_assoc($deg_table);
-													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  PHONE NUMBER :  ".$deg_column['tele']." </p>";
+													echo "<p  style='padding-bottom: 10px; font-size:18px; font-weight:bold'>  NUMÉRO DE TÉLÉPHONE :  ".$deg_column['tele']." </p>";
 												}
 
 												
@@ -158,7 +158,7 @@ if($deg_table){
 }
 } ?>
 
-						<button id="item-submit-edu" class="edit-button">Save</button>
+					<input class='btn btn-primary btn-block' type='submit' name='submit' id='submit' value = 'AJOUTER CE PATIENT'></input>
 </div>
 
 						   <?php
@@ -166,7 +166,7 @@ if($deg_table){
 						    else {
 						    	?>
 						    	<div class="container text-center">
-						    	<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class="text-danger display-4">There is no free patient</h1></span>
+						    	<span class='b-2 border-danger d-inline-block text-center p-1 w-600 '><h1 class="text-danger display-4">Il n'y a pas de patient</h1></span>
 						    </div>
 						   <?php }
 

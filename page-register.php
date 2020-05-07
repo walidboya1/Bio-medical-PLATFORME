@@ -49,7 +49,7 @@
 
 
           <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Disconnect</a>
+            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
           </div>
 
         </div>
@@ -59,7 +59,7 @@
 
 
     <div class="card card-shadowed p-50 w-500 mb-0" style="max-width: 100%">
-      <h5 class="text-uppercase text-center">ADD User Info</h5>
+      <h5 class="text-uppercase text-center">Ajouter INFORMATION UTILISATEUR</h5>
       <br><br>
 
 
@@ -113,7 +113,30 @@
         </div>
 
     <div class="form-group">
-          <input type="text" id="reg_Centre" name="reg_Centre" class="form-control" placeholder="Centre">
+          <select class="form-control" type="Centr" name="Centr" id="Centr">
+          <option>Centre</option>
+          <?php
+          $query = "SELECT nom from centre";
+          $table = mysqli_query($connection,$query);
+              if($table){
+                $rows=mysqli_num_rows($table);
+                if($rows > 0){
+                for ($i=0; $i < $rows;$i++){
+                  $row = mysqli_fetch_assoc($table);
+                  if ($row) {
+                      $inst_query = sprintf("select nom from centre LIMIT 1 OFFSET %d",$i);
+                      clearStoredResults();
+                      $inst_table = mysqli_query($connection, $inst_query);
+                      if ($inst_table){
+                        $inst_column = mysqli_fetch_assoc($inst_table);
+                        echo "<option>".$inst_column['nom']."</option>";
+                      }
+                  }
+                }}}
+              
+
+          ?>
+          </select>
         </div>
 
         <div class="form-group">
@@ -126,7 +149,7 @@
 
 
     <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Ajouter</button>
       </fieldset>
       </form>
 
@@ -196,7 +219,7 @@
         </div>
 
         <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Ajouter</button>
 </fieldset>
 </form>
 
@@ -228,43 +251,24 @@
                 </label>
 </div>
         <div class="form-group">
-          <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" placeholder="Nom">
+          <input type="text" id="reg_nom" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom"  class="form-control" >
         </div> 
           
-          
-
-<div class="form-group">
-          <input type="text" id="reg_prenom" name="reg_prenom" pattern="^[a-zA-Z ]+$" placeholder="Prenom" class="form-control" placeholder="Prenom">
-        </div>                                                                                                                                                     
-
-        <div class="form-group">
-          <input type="email" id="reg_email" name="reg_email" class="form-control" onchange ="check_email()" placeholder="Adresse mail">
-        </div>
+         <div class="form-group">
+          <input type="text" id="reg_respo" name="reg_nom" pattern="^[a-zA-Z ]+$" placeholder="Nom du responsable"  class="form-control">
+        </div> 
 
         <div class="form-group">
           <input type="phone" id="reg_phone" name="reg_phone" class="form-control" placeholder="N° de télephone">
         </div>
 
-
-
-    <div class="form-group">
-          <input type="text" id="reg_med" name="reg_med" class="form-control" placeholder="Identité Medecin">
-        </div>
-
-  <div class="form-group">
+        <div class="form-group">
           <input type="text" id="reg_site" name="reg_site" class="form-control" placeholder="Adresse">
         </div>
 
-        <div class="form-group">
-          <input type="password" id="reg_passwd" name="reg_passwd" class="form-control" placeholder="Mot de Passe">
-        </div>
-
-        <div class="form-group">
-          <input type="password" id="c_password" name="c_password" class="form-control" placeholder="Confirmer le Mot de Passe">
-        </div>
 
         <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Ajouter</button>
 </fieldset>
 </form>
 
@@ -310,7 +314,7 @@
 
 
     <br>
-        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">ADD</button>
+        <button class="btn btn-bold btn-block btn-primary" type="submit" id="signup-btn" value="Sign up">Ajouter</button>
       </fieldset>
       </form>
 
