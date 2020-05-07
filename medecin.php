@@ -83,7 +83,7 @@
         <div class="container-wide">
           <div class="row no-gap">
             
-            <div class="col-12 col-md-6 bg-img" style="background-image: url(image/fichep.png); min-height: 300px;"></div>
+            <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/genererpatient.PNG); min-height: 300px;"></div>
 
 
             <div class="offset-1 col-10 col-md-4 py-90">
@@ -99,7 +99,7 @@
 
              <div class="row no-gap">
             
-         <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/bg-girl.jpg); min-height: 300px;"></div>
+         <div class="col-12 offset-md-1 col-md-6 bg-img order-md-last" style="background-image: url(assets/img/listemedecin.PNG); min-height: 300px;"></div>
 
             <div class="offset-1 col-10 col-md-4 py-90 order-md-first">
               <h5>Visionner la liste des patient</h5>

@@ -99,56 +99,37 @@
       <section class="section" id = "section-features">
         <div class="container">
 
-          <div class="row gap-y align-items-center mb-90">
-            <div class="col-12 col-md-6 text-center hidden-sm-down">
-              <img src="assets/img/demo/slack/tools.png" alt="...">
-            </div>
-
-            <div class="col-12 col-md-5 offset-md-1 text-center text-md-left">
-              <p class="fs-60 fw-900 opacity-10">01</p>
-              <h3 class="fw-300">Choose your product</h3>
-              <p>Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing.</p>
-            </div>
-          </div>
+          <div class="row gap-y">
+                
+                <div class="col-12 col-md-6 text-center text-md-left">
+                  <img class="logo-default" src="assets/img/image06.png" alt="logo">
+                  <h6 class="text-uppercase mb-3">Plateforme</h6>
+                  <p class="fs-14">La mise à disposition de systèmes de téléradiologie permettant la transmission cryptée, le retraitement, l’analyse des dossiers radiologiques ainsi que la rédaction et l’archivage de seconds avis.</p>
+                </div>
 
 
-          <div class="row gap-y align-items-center mb-90">
-            <div class="col-12 col-md-5 text-center text-md-left">
-              <p class="fs-60 fw-900 opacity-10">02</p>
-              <h3 class="fw-300">Add your design</h3>
-              <p>Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing.</p>
-            </div>
-
-            <div class="col-12 col-md-6 offset-md-1 text-center hidden-sm-down">
-              <img src="assets/img/demo/slack/drag.png" alt="...">
-            </div>
-          </div>
+                <div class="col-12 col-md-6 text-center text-md-left">
+                  <img class="logo-default" src="assets/img/image13.png" alt="logo">
+                  <h6 class="text-uppercase mb-3">Outils</h6>
+                  <p class="fs-14">La mise à disposition d’outils de formation médicale continue, accessibles en ligne, participant au développement et à l’amélioration des compétences en radiologie et en imagerie médicale dans le zones à faible démographie médicale.</p>
+                </div>
 
 
-          <div class="row gap-y align-items-center mb-90">
-            <div class="col-12 col-md-6 text-center hidden-sm-down">
-              <img src="assets/img/demo/slack/everywhere.png" alt="...">
-            </div>
-
-            <div class="col-12 col-md-5 offset-md-1 text-center text-md-left">
-              <p class="fs-60 fw-900 opacity-10">03</p>
-              <h3 class="fw-300">We ship the product</h3>
-              <p>Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing.</p>
-            </div>
-          </div>
+                <div class="col-12 col-md-6 text-center text-md-left">
+                  <img class="logo-default" src="assets/img/image02.png" alt="logo">
+                  <h6 class="text-uppercase mb-3">Expertise</h6>
+                  <p class="fs-14">Le développement d’un réseau d’expertise radiologique coopératif international.</p>
+                </div>
 
 
-          <div class="row gap-y align-items-center">
-            <div class="col-12 col-md-5 text-center text-md-left">
-              <p class="fs-60 fw-900 opacity-10">04</p>
-              <h3 class="fw-300">Customer support begins</h3>
-              <p>Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing. Monotonectally leverage existing standards compliant ideas with distributed data. Efficiently simplify cross-unit systems whereas adaptive testing.</p>
-            </div>
+                <div class="col-12 col-md-6 text-center text-md-left">
+                  <img class="logo-default" src="assets/img/image03.png" alt="logo">
+                  <h6 class="text-uppercase mb-3">Formation</h6>
+                  <p class="fs-14">L’organisation de missions de formation en radiologie et en imagerie médicale et la mise en place, lors de ces missions, d’unités de téléradiologie assurant leur relais et leur suivi.</p>
+                </div>
 
-            <div class="col-12 col-md-6 offset-md-1 text-center hidden-sm-down">
-              <img src="assets/img/demo/slack/cta.png" alt="...">
-            </div>
-          </div>
+
+              </div>
 
 
         </div>
@@ -165,7 +146,7 @@
               <h5>TELERADIOLOGUE</h5>
               <br>
               <p>Enset, B.P.، 6207 Avenue des Forces Armées Royales,<br> Rabat 10100</p>
-              <p>Telephone : +212 641-074998<br>Email: sara@gmail.com</p>
+              <p>Telephone : +212 641-074998<br>Email: saramaghzaz@gmail.com</p>
             </div>
 
 
