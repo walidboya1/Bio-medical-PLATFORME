@@ -24,6 +24,7 @@
   <title>TELERADIO - Technicien</title>
 </head>
 <body>
+  <script>var x=0;</script>
   <!--
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       | Topbar
@@ -215,13 +216,32 @@ for($i=0;$i<$filecount;$i++){
 
     if(mysqli_query($connection,$sql)){
 echo "succes";
+?>
+<script>
+ 
+x = x + 1;
+
+</script>
+  <?php
   }
     else{
         echo "Error";
     }
 move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/'.$pname);
 
+}?>
+<script>
+  var count = <?php echo json_encode($filecount); ?>;
+  if (x == count){
+  alert('USER ADDED');
+  a = redirect();
 }
+  function redirect() {
+  location.href = "index.php";
+}
+</script>
+  <?php
+
 }}
  }}}}}
 }

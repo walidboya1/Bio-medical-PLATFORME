@@ -87,10 +87,10 @@
 
 
             <div class="offset-1 col-10 col-md-4 py-90">
-              <h5>Génerer un Patient</h5>
+              <h5>GÉNÉRER un Patient</h5>
               <p>Vous pourrez ici, générer un patient et renseigner son dossier.</p>
               <br>
-              <a class="btn btn-round btn-primary" href="patgenere.php">Génerer Patient</a>
+              <a class="btn btn-round btn-primary" href="patgenere.php">GÉNÉRER Patient</a>
             </div>
 
           </div>
