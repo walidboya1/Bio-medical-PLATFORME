@@ -1,175 +1,112 @@
 <?php
   require 'required.php';
   istechnicien();
-
 ?>
-<!DOCTYPE html>
-<html>
-<head>
+  <!DOCTYPE html>
+  <html>
 
-      <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="keywords" content="">
-
- <!-- Styles -->
+    <!-- Styles -->
     <link href="assets/css/core.min.css" rel="stylesheet">
     <link href="assets/css/thesaas.min.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
     <!-- Favicons -->
     <link rel="apple-touch-icon" href="assets/img/logo.png">
     <link rel="icon" href="assets/img/logo.png">
+    <title>TELERADIO - Technicien</title>
+  </head>
 
-  <title>TELERADIO - Technicien</title>
-</head>
-<body>
-  <script>var x=0;</script>
-  <!--
+  <body>
+    <script>
+    var x = 0;
+    </script>
+    <!--
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       | Topbar
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
-
-      <nav class="topbar topbar-expand-md topbar-nav-centered topbar-inverse topbar-sticky">
-        <div class="container">
-          
-          <div class="topbar-left">
-            <button class="topbar-toggler">&#9776;</button>
-            <a class="topbar-brand" href="index.php">
-              <img class="logo-default" src="assets/img/logo.png" alt="logo">
-              <img class="logo-inverse" src="assets/img/logo.png" alt="logo">
-            </a>
-          </div>
-
-
-
-
-          <div class="topbar-right">
-            <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a>
-          </div>
-
+    <nav class="topbar topbar-expand-md topbar-nav-centered topbar-inverse topbar-sticky">
+      <div class="container">
+        <div class="topbar-left">
+          <button class="topbar-toggler">&#9776;</button>
+          <a class="topbar-brand" href="index.php"> <img class="logo-default" src="assets/img/logo.png" alt="logo"> <img class="logo-inverse" src="assets/img/logo.png" alt="logo"> </a>
         </div>
-      </nav>
-      <!---- END topbar---->
-
-
+        <div class="topbar-right"> <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a> </div>
+      </div>
+    </nav>
+    <!---- END topbar---->
     <!-- Header -->
     <header class="header header-inverse h-fullscreen">
       <div class="header-overlay opacity-90" style="background-color:   #F5BD1f"></div>
-
       <div class="container text-center">
-
         <div class="row h-full">
           <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
-
-            <h5 class="display-4">Fiche Patient</h5>
-           
-          </div>
+            <h5 class="display-4">Fiche Patient</h5> </div>
         </div>
-
       </div>
     </header>
     <!-- END Header -->
-
-
-
-
-       <!--
+    <!--
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       | Apply form
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
-      <section class="section" id="section-apply">
-        <div class="container">
-          <header class="section-header">
-            <h2>Fiche du patient</h2>
-            <hr>
-            <p class="lead">Veuillez renseigner la fiche du patient s'il vous plaît.</p>
-          </header>
-
-
-          <div class="row">
-            <div class="col-12 col-md-8 offset-md-2">
-              
-
-              <form method="post" enctype="multipart/form-data">
-
-
-
-                <div class="row">
-                  <div class="form-group col-12 col-md-6">
-                      <input class="form-control" type="text" name="nom" id="nom" placeholder="Nom">
-                  </div>
+    <section class="section" id="section-apply">
+      <div class="container">
+        <header class="section-header">
+          <h2>Fiche du patient</h2>
+          <hr>
+          <p class="lead">Veuillez renseigner la fiche du patient s'il vous plaît.</p>
+        </header>
+        <div class="row">
+          <div class="col-12 col-md-8 offset-md-2">
+            <form method="post" enctype="multipart/form-data">
+              <div class="row">
                 <div class="form-group col-12 col-md-6">
-                <select class="form-control" type="sexe" name="sexe" id="sexe">
-                  <option>Masculin</option>
-                  <option>Feminin</option>
-                </select>
-              </div>
-                </div>
-                
-                <div class="row">
-                  <div class="form-group col-12 col-md-6">
-                    <input class="form-control" type="age" placeholder="Age" name="age" id="age">
-                  </div>
-
-                  <div class="form-group col-12 col-md-6">
-                    <input class="form-control" type="phone" placeholder="Telephone" name="tele" id="tele">
-                  </div>
-                </div>
-
-                
-
-
-                <div class="row">
-                  <div class="form-group col-12 col-md-6">
-                  <input class="form-control" type="text" placeholder="Type" name="type" id="type">
-                </div>
-
-                  <div class="form-group col-12 col-md-6">
-                  <input class="form-control" type="date" placeholder="Date" name="date" id="date">
+                  <input class="form-control" type="text" name="nom" id="nom" placeholder="Nom"> </div>
+                <div class="form-group col-12 col-md-6">
+                  <select class="form-control" type="sexe" name="sexe" id="sexe">
+                    <option>Masculin</option>
+                    <option>Feminin</option>
+                  </select>
                 </div>
               </div>
-
-                
-
-        <input  class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
-
-                <input class="btn btn-primary btn-block" type="submit" name="submit" value = "AJOUTER PATIENT"></input>
-
-
-
-              </form>
-
-            </div>
+              <div class="row">
+                <div class="form-group col-12 col-md-6">
+                  <input class="form-control" type="age" placeholder="Age" name="age" id="age"> </div>
+                <div class="form-group col-12 col-md-6">
+                  <input class="form-control" type="phone" placeholder="Telephone" name="tele" id="tele"> </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-12 col-md-6">
+                  <input class="form-control" type="text" placeholder="Type" name="type" id="type"> </div>
+                <div class="form-group col-12 col-md-6">
+                  <input class="form-control" type="date" placeholder="Date" name="date" id="date"> </div>
+              </div>
+              <input class="btn btn-white btn-block file-browser" type="File" name="file[]" id="file" multiple></input>
+              <input class="btn btn-primary btn-block" type="submit" name="submit" value="AJOUTER PATIENT"></input>
+            </form>
           </div>
-
-
         </div>
-      </section>
-
-<!--
+      </div>
+    </section>
+    <!--
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       | END Apply form
       |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
       !-->
-
-
-
-
-
-
-
     <!-- Scripts -->
     <script src="assets/js/core.min.js"></script>
     <script src="assets/js/thesaas.min.js"></script>
     <script src="assets/js/script.js"></script>
+  </body>
 
-</body>
-</html>
-
-<?php 
+  </html>
+  <?php 
 
 if (isset($_POST["submit"]))
  {
@@ -217,12 +154,10 @@ for($i=0;$i<$filecount;$i++){
     if(mysqli_query($connection,$sql)){
 echo "succes";
 ?>
-<script>
- 
-x = x + 1;
-
-</script>
-  <?php
+    <script>
+    x = x + 1;
+    </script>
+    <?php
   }
     else{
         echo "Error";
@@ -230,35 +165,28 @@ x = x + 1;
 move_uploaded_file($_FILES['file']['tmp_name'][$i], 'upload/'.$pname);
 
 }?>
-<script>
-  var count = <?php echo json_encode($filecount); ?>;
-  if (x == count){
-  alert('USER ADDED');
-  a = redirect();
-}
-  function redirect() {
-  location.href = "index.php";
-}
-</script>
-  <?php
+      <script>
+      var count = <?php echo json_encode($filecount); ?>;
+      if(x == count) {
+        alert('USER ADDED');
+        a = redirect();
+      }
+
+      function redirect() {
+        location.href = "index.php";
+      }
+      </script>
+      <?php
 
 }}
  }}}}}
 }
  
 ?>
+        <!-- Scripts -->
+        <script src="assets/js/core.min.js"></script>
+        <script src="assets/js/thesaas.min.js"></script>
+        <script src="assets/js/script.js"></script>
+        </body>
 
-
-
-
-
-
-
-    <!-- Scripts -->
-    <script src="assets/js/core.min.js"></script>
-    <script src="assets/js/thesaas.min.js"></script>
-    <script src="assets/js/script.js"></script>
-
-</body>
-</html>
-
+        </html>
