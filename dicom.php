@@ -1,14 +1,54 @@
+<?php
+  require 'required.php';
+?>  
 <!DOCTYPE HTML>
 <html>
 <head>
-    <!-- twitter bootstrap CSS stylesheet - included to make things pretty, not needed or used by cornerstone -->
-    <link href="utils/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <!-- Styles -->
+    <link href="assets/css/core.min.css" rel="stylesheet">
+    <link href="assets/css/thesaas.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" href="assets/img/logo.png">
+    <link rel="icon" href="assets/img/logo.png">
+    <title>TELERADIO - Dicom</title>
+
+
     <link href="utils/cornerstone.min.css" rel="stylesheet">
 </head>
 <body style="background-color: #252525;">
+    <!--
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      | Topbar
+      |‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒‒
+      !-->
+      <nav class="topbar topbar-expand-md topbar-nav-centered topbar-inverse topbar-sticky">
+      <div class="container">
+        <div class="topbar-left">
+          <button class="topbar-toggler">&#9776;</button>
+          <a class="topbar-brand" href="index.php"> <img class="logo-default" src="assets/img/logo.png" alt="logo"> <img class="logo-inverse" src="assets/img/logo.png" alt="logo"> </a>
+        </div>
+        <div class="topbar-right"> <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a> </div>
+      </div>
+    </nav>
+    <!---- END topbar---->
+    <!-- Header -->
+    <header class="header header-inverse h-fullscreen">
+      <div class="header-overlay opacity-90" style="background-color: #fffffFF"></div>
+      <div class="container text-center">
+        <div class="row h-full">
+          <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
+            <h5 class="display-4">Visualiseur Dicom</h5> </div>
+        </div>
+      </div>
+    </header>
+    <!-- END Header -->
+
 <div class="container">
-
-
     <div id="loadProgress">Image Load Progress:</div>
 
     <div class="row">
@@ -226,4 +266,8 @@
         }
     });
 </script>
+    <!-- Scripts -->
+    <script src="assets/js/core.min.js"></script>
+    <script src="assets/js/thesaas.min.js"></script>
+    <script src="assets/js/script.js"></script>
 </html>

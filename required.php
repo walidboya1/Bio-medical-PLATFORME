@@ -64,21 +64,6 @@ function isadmin()
         exit();
     }
 }
-function isuser($userid)
-{
-    global $connection;
-    $sessionu = $_SESSION['User_Id'];
-    $userid = stripslashes($userid);
-    $sessionu = stripslashes($sessionu);
-    clearStoredResults();
-    $query = sprintf("select prof from user where session='%s' and id=%d", $sessionu, $userid);
-    $result = mysqli_query($connection, $query);
-    $numr = mysqli_num_rows($result);
-    if ($numr == 0)
-    {
-        header("location: index.php");
-        exit();
-    }
-}
+
 session_start();
 ?>

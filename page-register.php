@@ -31,14 +31,12 @@ isadmin();
 				<button class="topbar-toggler">&#9776; </button>
 				<a class="topbar-brand" href="index.php"> <img class="logo-default" src="assets/img/logo.png" alt="logo"> <img class="logo-inverse" src="assets/img/logo.png" alt="logo"> </a>
 			</div>
-			<div class="topbar-right"> <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter
-					</a> </div>
+			<div class="topbar-right"> <a class="btn btn-sm btn-danger mr-4" href="logout.php">Se deconnecter</a> </div>
 		</div>
 	</nav>
 	<!---- END topbar---->
 	<div class="card card-shadowed p-50 w-500 mb-0" style="max-width: 100%">
-		<h5 class="text-uppercase text-center">Ajouter INFORMATION UTILISATEUR
-			</h5>
+		<h5 class="text-uppercase text-center">Ajouter INFORMATION UTILISATEUR</h5>
 		<br>
 		<br>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
@@ -51,8 +49,7 @@ isadmin();
 							<input type="radio" class="custom-control-input" name="radio1" id="medecin" value="medecin" disabled="">
 							<a class="show-medecin-form"> <span class="custom-control-indicator">
 									</span> </a>
-							<a class="show-medecin-form"> <span class="custom-control-description">Medecin
-									</span> </a>
+							<a class="show-medecin-form"> <span class="custom-control-description">Medecin</span> </a>
 						</label>
 						<label class="custom-control custom-radio">
 							<input type="radio" class="custom-control-input" name="radio1" id="technicien" value="technicien" checked=""> <span class="custom-control-indicator">

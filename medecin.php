@@ -1,7 +1,6 @@
 <?php
   require 'required.php';
   ismedecin();
-  isuser($_GET['user']);
 ?>
   <!DOCTYPE html>
   <html>
@@ -43,7 +42,7 @@
       <div class="container text-center">
         <div class="row h-full">
           <div class="col-12 col-lg-8 offset-lg-2 align-self-center">
-            <h5 class="display-4">medecin</h5> </div>
+            <h5 class="display-4">Médecin</h5> </div>
         </div>
       </div>
     </header>
@@ -73,6 +72,13 @@
               echo $phr;
             ?>
           </div>
+        </div>
+        <div class="row no-gap">
+          <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/dicom.PNG); min-height: 300px;"></div>
+          <div class="offset-1 col-10 col-md-4 py-90">
+            <h5>visionneur de fichier Dicom</h5>
+            <p>Vous pourrez ici, visionner les fichier Dicom de Vos Patient.</p>
+            <br> <a class="btn btn-round btn-primary" href="dicom.php">VISIONNER</a> </div>
         </div>
       </div>
     </section>

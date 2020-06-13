@@ -111,7 +111,7 @@
 if (isset($_POST["submit"]))
  {
  
- $nom = $_POST['nom'];
+$nom = $_POST['nom'];
 $sexe = $_POST['sexe'];
 $Age = $_POST['age'];
 $tele = $_POST['tele'];

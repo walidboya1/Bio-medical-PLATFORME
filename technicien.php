@@ -74,7 +74,16 @@
 					 ?> 
 				</div>
 			</div>
-	</section>
+
+        <div class="row no-gap">
+          <div class="col-12 col-md-6 bg-img" style="background-image: url(assets/img/dicom.PNG); min-height: 300px;"></div>
+          <div class="offset-1 col-10 col-md-4 py-90">
+            <h5>visionneur de fichier Dicom</h5>
+            <p>Vous pourrez ici, visionner les fichier Dicom de Vos Patient.</p>
+            <br> <a class="btn btn-round btn-primary" href="dicom.php">VISIONNER</a> </div>
+        </div>
+      </div>
+    </section>
 
 <!-- Scripts -->
 <script src="assets/js/core.min.js"></script>
